@@ -18,5 +18,16 @@ describe("ListingCard", () => {
     expect(screen.getByText("Sac noir")).toBeInTheDocument();
     expect(screen.getByText(/Dakar/)).toBeInTheDocument();
     expect(screen.getByRole("link")).toHaveAttribute("href", "/objets/1");
+    expect(screen.getByText("Objet perdu")).toBeInTheDocument();
+  });
+
+  it("n'affiche pas d'image quand photoUrl vide", () => {
+    renderWithProviders(<ListingCard listing={base} />);
+    expect(screen.queryByRole("img")).toBeNull();
+  });
+
+  it("affiche l'image quand photoUrl présent", () => {
+    renderWithProviders(<ListingCard listing={{ ...base, photoUrl: "http://x/y.jpg" }} />);
+    expect(screen.getByRole("img")).toHaveAttribute("src", "http://x/y.jpg");
   });
 });

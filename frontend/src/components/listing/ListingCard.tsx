@@ -16,7 +16,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
       </div>
       <div className="p-4">
         <span className="text-xs uppercase text-cyan-400">
-          {cfg.directionLabels[listing.direction]}
+          {cfg.directionLabels[listing.direction] ?? ""}
         </span>
         <h3 className="text-white font-semibold">{listing.title}</h3>
         <p className="text-gray-400 text-sm">
