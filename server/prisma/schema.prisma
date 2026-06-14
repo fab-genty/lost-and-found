@@ -8,96 +8,104 @@ datasource db {
 }
 
 model User {
-name   String @default("")
-  id        String      @id @default(uuid())
-  username  String      @unique
-  email     String      @unique
-  activated Boolean     @default(true)
+  id        String     @id @default(uuid())
+  name      String     @default("")
+  username  String     @unique
+  email     String     @unique
+  activated Boolean    @default(true)
   password  String
-  role      userRole    @default(USER)
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
-  foundItem FoundItem[]
-  claim     Claim[]
-  userImg   String      @default("")
-  isDeleted Boolean     @default(false)
+  role      userRole   @default(USER)
+  userImg   String     @default("")
+  isDeleted Boolean    @default(false)
   deletedAt DateTime?
-  // profile   UserProfile?
-  LostItem  LostItem[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  listings  Listing[]
+  responses Response[]
 
   @@map("users")
 }
 
-model ItemCategory {
-  id         String      @id @default(uuid())
-  name       String
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
-  foundItems FoundItem[]
-  LostItem   LostItem[]
+model Category {
+  id        String    @id @default(uuid())
+  name      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  listings  Listing[]
 
-  @@map("itemsCategories")
+  @@map("categories")
 }
 
-model FoundItem {
-  id            String             @id @default(uuid())
-  userId        String
-  img           String             @default("")
-  user          User               @relation(fields: [userId], references: [id])
-  categoryId    String
-  category      ItemCategory? @relation(fields: [categoryId], references: [id])
-  foundItemName String
-  description   String
-  location      String
-  date          DateTime           @default(now())
-  createdAt     DateTime           @default(now())
-  updatedAt     DateTime           @updatedAt
-  claim         Claim[]
-  claimProcess  String             @default("")
-  isClaimed     Boolean            @default(false)
-  isDeleted     Boolean            @default(false)
-  deletedAt     DateTime?
+model Listing {
+  id              String           @id @default(uuid())
+  type            ListingType
+  direction       ListingDirection
+  title           String
+  description     String           @default("")
+  country         String
+  region          String           @default("")
+  city            String           @default("")
+  date            DateTime         @default(now())
+  photoUrl        String           @default("")
+  contactPhone    String
+  contactWhatsapp String           @default("")
+  categoryId      String?
+  category        Category?        @relation(fields: [categoryId], references: [id])
+  species         String?
+  breed           String?
+  color           String?
+  age             Int?
+  gender          String?
+  lastSeenDetails String?
+  userId          String
+  user            User             @relation(fields: [userId], references: [id])
+  status          status           @default(PENDING)
+  isResolved      Boolean          @default(false)
+  isDeleted       Boolean          @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  responses       Response[]
 
-  @@map("foundItems")
+  @@map("listings")
 }
 
-model LostItem {
-  id           String             @id @default(uuid())
-  userId       String
-  lostItemName String
-  categoryId   String
-  img          String             @default("")
-  description  String
-  location     String
-  date         DateTime
-  category     ItemCategory? @relation(fields: [categoryId], references: [id])
-  createdAt    DateTime           @default(now())
-  updatedAt    DateTime           @updatedAt
-  isFound      Boolean            @default(false)
-  isDeleted    Boolean            @default(false)
-  deletedAt    DateTime?
-  user         User               @relation(fields: [userId], references: [id])
-
-  @@map("lostItems")
-}
-
-model Claim {
-  id                     String    @id @default(uuid())
-  userId                 String
-  foundItemId            String
-  isDeleted    Boolean            @default(false)
-  deletedAt    DateTime?
-  status                 status    @default(PENDING)
+model Response {
+  id                     String       @id @default(uuid())
+  listingId              String
+  listing                Listing      @relation(fields: [listingId], references: [id])
+  kind                   ResponseKind
+  authorId               String
+  author                 User         @relation(fields: [authorId], references: [id])
+  message                String
   distinguishingFeatures String?
-  lostDate               DateTime
-  createdAt              DateTime  @default(now())
-  updatedAt              DateTime  @updatedAt
-  user                   User      @relation(fields: [userId], references: [id])
-  foundItem              FoundItem @relation(fields: [foundItemId], references: [id])
+  sightingLocation       String?
+  sightingDate           DateTime?
+  status                 status       @default(PENDING)
+  isDeleted              Boolean      @default(false)
+  deletedAt              DateTime?
+  createdAt              DateTime     @default(now())
+  updatedAt              DateTime     @updatedAt
 
-  @@map("claims")
+  @@map("responses")
 }
 
+enum ListingType {
+  OBJECT
+  ANIMAL
+  PERSON
+}
+
+enum ListingDirection {
+  LOST
+  FOUND
+  MISSING
+}
+
+enum ResponseKind {
+  CLAIM
+  SIGHTING
+}
 
 enum status {
   PENDING
