@@ -25,6 +25,7 @@ describe("ListingForm", () => {
       <ListingForm type="OBJECT" direction="LOST" onSubmit={onSubmit} />
     );
     await userEvent.type(screen.getByLabelText(/titre/i), "Sac");
+    await userEvent.type(screen.getByLabelText(/pays/i), "Sénégal");
     await userEvent.type(screen.getByLabelText(/téléphone/i), "+221770000000");
     await userEvent.click(screen.getByRole("button", { name: /publier/i }));
     expect(onSubmit).toHaveBeenCalled();

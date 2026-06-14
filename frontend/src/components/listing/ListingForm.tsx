@@ -31,7 +31,7 @@ export function ListingForm({ type, direction, onSubmit, defaultValues }: Props)
       <div className="grid grid-cols-3 gap-3">
         <div>
           <label htmlFor="country" className="block text-gray-300 mb-1">Pays</label>
-          <input id="country" className={field} {...register("country")} />
+          <input id="country" className={field} {...register("country", { required: true })} />
         </div>
         <div>
           <label htmlFor="region" className="block text-gray-300 mb-1">Région</label>
