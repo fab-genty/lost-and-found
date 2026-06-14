@@ -1,4 +1,4 @@
-import { ListingType } from "./listing.types";
+import type { ListingType } from "./listing.types";
 
 export type TypeConfig = {
   label: string;

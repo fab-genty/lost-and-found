@@ -22,7 +22,8 @@ import {
   FaTachometerAlt,
 } from "react-icons/fa";
 import { listingConfig } from "../../domain/listingConfig";
-import { directionsForType, ListingType } from "../../domain/listing.types";
+import type { ListingType } from "../../domain/listing.types";
+import { directionsForType } from "../../domain/listing.types";
 
 function TypeMenu({ type }: { type: ListingType }) {
   const cfg = listingConfig[type];

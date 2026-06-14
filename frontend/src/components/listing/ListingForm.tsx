@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { ListingType, ListingDirection } from "../../domain/listing.types";
+import type { ListingType, ListingDirection } from "../../domain/listing.types";
 import { listingConfig } from "../../domain/listingConfig";
 
 type Props = {

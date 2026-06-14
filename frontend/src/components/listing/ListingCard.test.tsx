@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../test/renderWithProviders";
 import { ListingCard } from "./ListingCard";
-import { Listing } from "../../domain/listing.types";
+import type { Listing } from "../../domain/listing.types";
 
 const base: Listing = {
   id: "1", type: "OBJECT", direction: "LOST", title: "Sac noir",

@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../test/renderWithProviders";
 import { ListingDetailView } from "./ListingDetail";
-import { Listing } from "../../domain/listing.types";
+import type { Listing } from "../../domain/listing.types";
 
 const listing: Listing = {
   id: "9", type: "PERSON", direction: "MISSING", title: "Awa Diop",

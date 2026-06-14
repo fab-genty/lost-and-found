@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { directionsForType, isPerson, ListingType } from "./listing.types";
+import type { ListingType } from "./listing.types";
+import { directionsForType, isPerson } from "./listing.types";
 
 describe("listing domain", () => {
   it("personnes => direction MISSING uniquement", () => {

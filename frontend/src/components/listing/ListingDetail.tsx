@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Listing, responseKindForDirection } from "../../domain/listing.types";
+import type { Listing } from "../../domain/listing.types";
+import { responseKindForDirection } from "../../domain/listing.types";
 import { listingConfig } from "../../domain/listingConfig";
 import { ContactBlock } from "./ContactBlock";
 import { ResponseForm } from "./ResponseForm";

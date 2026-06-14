@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { ResponseKind } from "../../domain/listing.types";
+import type { ResponseKind } from "../../domain/listing.types";
 
 const field =
   "w-full rounded bg-gray-800 border border-gray-700 px-3 py-2 text-white";

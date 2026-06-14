@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Listing, ListingType, ListingDirection } from "../../domain/listing.types";
+import type { Listing, ListingType, ListingDirection } from "../../domain/listing.types";
 import { useGetListingsQuery } from "../../redux/api/listingApi";
 import { ListingCard } from "./ListingCard";
 

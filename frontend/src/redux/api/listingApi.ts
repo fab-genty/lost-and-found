@@ -1,5 +1,5 @@
 import { baseApi } from "./baseApi";
-import { Listing, ListingResponse } from "../../domain/listing.types";
+import type { Listing, ListingResponse } from "../../domain/listing.types";
 
 type ListingFilters = {
   type?: string;

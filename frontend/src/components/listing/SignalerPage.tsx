@@ -1,9 +1,6 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import {
-  ListingType,
-  ListingDirection,
-  directionsForType,
-} from "../../domain/listing.types";
+import type { ListingType, ListingDirection } from "../../domain/listing.types";
+import { directionsForType } from "../../domain/listing.types";
 import { listingConfig } from "../../domain/listingConfig";
 import { ListingForm } from "./ListingForm";
 import { useCreateListingMutation } from "../../redux/api/listingApi";

@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../test/renderWithProviders";
 import { ListingListView } from "./ListingList";
-import { Listing } from "../../domain/listing.types";
+import type { Listing } from "../../domain/listing.types";
 
 const items: Listing[] = [
   { id: "1", type: "ANIMAL", direction: "LOST", title: "Chien Rex", description: "",

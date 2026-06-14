@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Listing } from "../../domain/listing.types";
+import type { Listing } from "../../domain/listing.types";
 import { listingConfig } from "../../domain/listingConfig";
 
 export function ListingCard({ listing }: { listing: Listing }) {
