@@ -4,15 +4,11 @@ import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import DashboardLayout from "./dashboard/DashboardLayout";
 import Dashboard from "./dashboard/Dashboard";
-import FoundItemsManagement from "./dashboard/pages/FoundItemsManagement";
-import LostItemsManagement from "./dashboard/pages/LostItemsManagement";
-import ClaimsManagement from "./dashboard/pages/ClaimsManagement";
+import ListingsManagement from "./dashboard/pages/ListingsManagement";
+import ResponsesManagement from "./dashboard/pages/ResponsesManagement";
 import UsersManagement from "./dashboard/pages/UsersManagement";
 import CategoriesManagement from "./dashboard/pages/CategoriesManagement";
 import Settings from "./dashboard/pages/Settings";
-import MyFoundItems from "./dashboard/myFoundItems/MyFoundItems";
-import MyLostItems from "./dashboard/myLostItems/MyLostItems";
-import MyClaimReqPage from "./pages/myClaimRequest/MyClaimReqPage";
 import { ObjetsPage } from "./pages/objets/ObjetsPage";
 import { ObjetDetail } from "./pages/objets/ObjetDetail";
 import { ObjetSignaler } from "./pages/objets/ObjetSignaler";
@@ -23,6 +19,8 @@ import { PersonnesPage } from "./pages/personnes/PersonnesPage";
 import { PersonneDetail } from "./pages/personnes/PersonneDetail";
 import { PersonneSignaler } from "./pages/personnes/PersonneSignaler";
 import { PersonneVu } from "./pages/personnes/PersonneVu";
+import { MesAnnonces } from "./pages/monEspace/MesAnnonces";
+import { MesReponses } from "./pages/monEspace/MesReponses";
 
 export const appRoutes = [
   {
@@ -43,7 +41,8 @@ export const appRoutes = [
       { path: "/personnes/:id", element: <PersonneDetail /> },
       { path: "/personnes/:id/vu", element: <PersonneVu /> },
       { path: "/a-propos", element: <Home /> },
-      { path: "/myClaimRequest", element: <MyClaimReqPage /> },
+      { path: "/mon-espace/annonces", element: <MesAnnonces /> },
+      { path: "/mon-espace/reponses", element: <MesReponses /> },
     ],
   },
   {
@@ -55,26 +54,18 @@ export const appRoutes = [
     ),
   },
   {
-    path: "/dashboard/found-items",
+    path: "/dashboard/listings",
     element: (
       <DashboardLayout>
-        <FoundItemsManagement />
+        <ListingsManagement />
       </DashboardLayout>
     ),
   },
   {
-    path: "/dashboard/lost-items",
+    path: "/dashboard/responses",
     element: (
       <DashboardLayout>
-        <LostItemsManagement />
-      </DashboardLayout>
-    ),
-  },
-  {
-    path: "/dashboard/claims",
-    element: (
-      <DashboardLayout>
-        <ClaimsManagement />
+        <ResponsesManagement />
       </DashboardLayout>
     ),
   },
@@ -99,30 +90,6 @@ export const appRoutes = [
     element: (
       <DashboardLayout>
         <Settings />
-      </DashboardLayout>
-    ),
-  },
-  {
-    path: "/dashboard/myFoundItems",
-    element: (
-      <DashboardLayout>
-        <MyFoundItems />
-      </DashboardLayout>
-    ),
-  },
-  {
-    path: "/dashboard/myLostItems",
-    element: (
-      <DashboardLayout>
-        <MyLostItems />
-      </DashboardLayout>
-    ),
-  },
-  {
-    path: "/dashboard/myClaimRequest",
-    element: (
-      <DashboardLayout>
-        <MyClaimReqPage />
       </DashboardLayout>
     ),
   },

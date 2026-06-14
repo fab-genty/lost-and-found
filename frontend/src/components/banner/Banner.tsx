@@ -6,50 +6,50 @@ const Banner = () => {
 
   const slides = [
     {
-      badge: "Lost something? Report here!",
+      badge: "Perdu quelque chose ? Signalez-le !",
       title: "Welcome to Lost and Found Management",
       description:
         "Lost and Found Management is your reliable partner in handling lost items. Whether you've misplaced your belongings or found something left behind, we're here to assist with our modern, efficient system.",
       primaryButton: {
-        text: "Report a Lost Item",
-        href: "/reportlostItem",
+        text: "Signaler un objet perdu",
+        href: "/objets/signaler",
         icon: "📋",
       },
       secondaryButton: {
-        text: "Report a Found Item",
-        href: "/reportFoundItem",
+        text: "Parcourir les objets",
+        href: "/objets",
         icon: "🔍",
       },
     },
     {
-      badge: "Found something? Help others!",
+      badge: "Trouvé quelque chose ? Aidez les autres !",
       title: "Help Reunite Items with Their Owners",
       description:
         "Join our community of helpful citizens. By reporting found items, you're making a difference in someone's day. Every item reported brings us closer to a more connected community.",
       primaryButton: {
-        text: "Report Found Item",
-        href: "/reportFoundItem",
+        text: "Signaler un animal",
+        href: "/animaux/signaler",
         icon: "🤝",
       },
       secondaryButton: {
-        text: "Browse Lost Items",
-        href: "/lostItems",
+        text: "Voir les animaux",
+        href: "/animaux",
         icon: "🔍",
       },
     },
     {
-      badge: "Need help? We're here!",
+      badge: "Besoin d'aide ? Nous sommes là !",
       title: "Track Your Items & Claims",
       description:
         "Stay updated on your lost item reports and claim requests. Our advanced tracking system ensures you never miss an update when your belongings are found.",
       primaryButton: {
-        text: "View My Found Items",
-        href: "/dashboard/myFoundItems",
+        text: "Mes annonces",
+        href: "/mon-espace/annonces",
         icon: "📱",
       },
       secondaryButton: {
-        text: "Browse Found Items",
-        href: "/foundItems",
+        text: "Personnes disparues",
+        href: "/personnes",
         icon: "👀",
       },
     },

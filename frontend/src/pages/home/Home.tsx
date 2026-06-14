@@ -1,9 +1,8 @@
 import Banner from "../../components/banner/Banner";
 import Services from "../services/Services";
-import RecentLostItem from "../../components/recentItem/RecentLostItem";
+import RecentListings from "../../components/recentItem/RecentListings";
 import Reviews from "../reviews/Reviews";
 import AboutUs from "../../components/aboutUs/aboutUs";
-import RecentFoundItem from "../../components/recentItem/RecentFoundItem";
 import Faq from "../../components/faq/Faq";
 import SuccessStats from "../../components/successStats/SuccessStats";
 
@@ -13,11 +12,10 @@ const Home = () => {
       <Banner />
       <Services />
       <SuccessStats />
-      <RecentLostItem />
-      <RecentFoundItem />
+      <RecentListings />
       <Reviews />
       <AboutUs />
-      <Faq/>
+      <Faq />
     </>
   );
 };
