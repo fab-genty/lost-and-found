@@ -22,5 +22,12 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: ["./src/test/setup.ts"],
     css: false,
+    server: {
+      deps: {
+        // Force flowbite-react through Vite so resolve.alias intercepts
+        // its `import version from 'tailwindcss/version.js'`
+        inline: ["flowbite-react"],
+      },
+    },
   },
 });
