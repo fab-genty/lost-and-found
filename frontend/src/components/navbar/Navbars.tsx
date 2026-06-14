@@ -20,8 +20,37 @@ import {
   FaSignOutAlt,
   FaList,
   FaTachometerAlt,
-  FaBrain,
 } from "react-icons/fa";
+import { listingConfig } from "../../domain/listingConfig";
+import { directionsForType, ListingType } from "../../domain/listing.types";
+
+function TypeMenu({ type }: { type: ListingType }) {
+  const cfg = listingConfig[type];
+  return (
+    <Dropdown
+      inline
+      label={
+        <span className="text-gray-300 hover:text-white px-4 py-3 font-medium">
+          <span>{cfg.emoji}</span>{" "}
+          <span>{cfg.label}</span>
+        </span>
+      }
+    >
+      <DropdownItem as={Link} to={cfg.basePath}>
+        Parcourir
+      </DropdownItem>
+      {directionsForType(type).map((d) => (
+        <DropdownItem
+          key={d}
+          as={Link}
+          to={`${cfg.basePath}/signaler?direction=${d}`}
+        >
+          {cfg.directionLabels[d]}
+        </DropdownItem>
+      ))}
+    </Dropdown>
+  );
+}
 
 export function Navbars() {
   const navigate = useNavigate();
@@ -45,9 +74,9 @@ export function Navbars() {
             </div>
             <div className="hidden sm:block">
               <span className="self-center whitespace-nowrap text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                Lost & Found
+                Retrouver
               </span>
-              <p className="text-gray-400 text-xs">Find what matters</p>
+              <p className="text-gray-400 text-xs">Objets · Animaux · Personnes</p>
             </div>
           </div>
         </NavbarBrand>
@@ -140,31 +169,21 @@ export function Navbars() {
 
                 <DropdownItem className="hover:bg-gray-700 text-gray-300 hover:text-white">
                   <Link
-                    to="/dashboard/myLostItems"
+                    to="/mon-espace/annonces"
                     className="flex items-center space-x-2 w-full"
                   >
                     <FaList className="text-yellow-400" />
-                    <span>My lost items</span>
+                    <span>Mes annonces</span>
                   </Link>
                 </DropdownItem>
 
                 <DropdownItem className="hover:bg-gray-700 text-gray-300 hover:text-white">
                   <Link
-                    to="/dashboard/myFoundItems"
-                    className="flex items-center space-x-2 w-full"
-                  >
-                    <FaSearch className="text-green-400" />
-                    <span>My found items</span>
-                  </Link>
-                </DropdownItem>
-
-                <DropdownItem className="hover:bg-gray-700 text-gray-300 hover:text-white">
-                  <Link
-                    to="/dashboard/myClaimRequest"
+                    to="/mon-espace/reponses"
                     className="flex items-center space-x-2 w-full"
                   >
                     <FaUser className="text-purple-400" />
-                    <span>My claims</span>
+                    <span>Mes réponses</span>
                   </Link>
                 </DropdownItem>
 
@@ -202,44 +221,16 @@ export function Navbars() {
             href="/"
             className="text-gray-300 hover:text-white hover:bg-gray-700/50 px-4 py-3 rounded-lg transition-all duration-200 font-medium flex items-center space-x-2"
           >
-            <span>Home</span>
+            Accueil
           </NavbarLink>
+          <TypeMenu type="OBJECT" />
+          <TypeMenu type="ANIMAL" />
+          <TypeMenu type="PERSON" />
           <NavbarLink
-            href="/reportlostItem"
+            href="/a-propos"
             className="text-gray-300 hover:text-white hover:bg-gray-700/50 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
           >
-            Report Lost Item
-          </NavbarLink>
-          <NavbarLink
-            href="/reportFoundItem"
-            className="text-gray-300 hover:text-white hover:bg-gray-700/50 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
-          >
-            Report Found Item
-          </NavbarLink>
-          <NavbarLink
-            href="/lostItems"
-            className="text-gray-300 hover:text-white hover:bg-gray-700/50 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
-          >
-            Lost items
-          </NavbarLink>
-          <NavbarLink
-            href="/foundItems"
-            className="text-gray-300 hover:text-white hover:bg-gray-700/50 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
-          >
-            Found items
-          </NavbarLink>
-          <NavbarLink
-            href="/ai-search"
-            className="text-gray-300 hover:text-white hover:bg-gray-700/50 px-4 py-3 rounded-lg transition-all duration-200 font-medium flex items-center space-x-2"
-          >
-            <FaBrain />
-            <span>AI Search</span>
-          </NavbarLink>
-          <NavbarLink
-            href="#aboutUs"
-            className="text-gray-300 hover:text-white hover:bg-gray-700/50 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
-          >
-            About us
+            À propos
           </NavbarLink>
         </NavbarCollapse>
       </Navbar>
