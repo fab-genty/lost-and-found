@@ -23,8 +23,12 @@ export function SignalerPage({ type }: { type: ListingType }) {
         type={type}
         direction={direction}
         onSubmit={async (data) => {
-          await createListing(data).unwrap().catch(() => {});
-          navigate(cfg.basePath);
+          try {
+            await createListing(data).unwrap();
+            navigate(cfg.basePath);
+          } catch {
+            // Phase 1: erreur réseau non remontée à l'UI (backend non livré)
+          }
         }}
       />
     </section>

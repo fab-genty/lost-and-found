@@ -74,7 +74,7 @@ export function ListingForm({ type, direction, onSubmit, defaultValues }: Props)
       {cfg.fields.includes("age") && (
         <div>
           <label htmlFor="age" className="block text-gray-300 mb-1">Âge</label>
-          <input id="age" type="number" className={field} {...register("age", { required: true })} />
+          <input id="age" type="number" className={field} {...register("age", { required: true, valueAsNumber: true })} />
         </div>
       )}
       {cfg.fields.includes("gender") && (

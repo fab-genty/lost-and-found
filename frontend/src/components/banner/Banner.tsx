@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
 const Banner = () => {
-  const [bgImg] = useState("/bgimg.png");
+  const bgImg = "/bgimg.png";
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
       badge: "Perdu quelque chose ? Signalez-le !",
-      title: "Welcome to Lost and Found Management",
+      title: "Bienvenue sur Retrouver",
       description:
         "Lost and Found Management is your reliable partner in handling lost items. Whether you've misplaced your belongings or found something left behind, we're here to assist with our modern, efficient system.",
       primaryButton: {
@@ -94,13 +94,12 @@ const Banner = () => {
           </div>
 
           <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none text-white transition-all duration-500">
-            {currentSlideData.title.includes("Lost and Found") ? (
+            {currentSlideData.title.includes("Retrouver") ? (
               <>
-                Welcome to{" "}
+                Bienvenue sur{" "}
                 <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-green-400 bg-clip-text text-transparent">
-                  Lost and Found
-                </span>{" "}
-                Management
+                  Retrouver
+                </span>
               </>
             ) : (
               <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-green-400 bg-clip-text text-transparent">

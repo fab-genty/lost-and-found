@@ -1,7 +1,8 @@
 import type { ListingResponse } from "../../domain/listing.types";
 import { useGetMyResponsesQuery } from "../../redux/api/listingApi";
 
-export function MesReponsesView({ items }: { items: ListingResponse[] }) {
+export function MesReponsesView({ items, isLoading }: { items: ListingResponse[]; isLoading: boolean }) {
+  if (isLoading) return <p className="text-gray-400 p-6">Chargement…</p>;
   if (items.length === 0) return <p className="text-gray-400 p-6">Aucune réponse.</p>;
   return (
     <ul className="p-6 space-y-2">
@@ -16,6 +17,6 @@ export function MesReponsesView({ items }: { items: ListingResponse[] }) {
 }
 
 export function MesReponses() {
-  const { data } = useGetMyResponsesQuery();
-  return <MesReponsesView items={data?.data ?? []} />;
+  const { data, isLoading } = useGetMyResponsesQuery();
+  return <MesReponsesView items={data?.data ?? []} isLoading={isLoading} />;
 }
