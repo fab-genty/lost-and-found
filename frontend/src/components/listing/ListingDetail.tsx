@@ -56,7 +56,7 @@ export function ListingDetailView({
 export function ListingDetail() {
   const { id = "" } = useParams();
   const { data } = useGetListingQuery(id);
-  const user: any = useUserVerification();
+  const user = useUserVerification() as { email?: string };
   const [createResponse] = useCreateResponseMutation();
   if (!data?.data) return <p className="text-gray-400 p-6">Chargement…</p>;
   return (
