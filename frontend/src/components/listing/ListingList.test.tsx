@@ -12,6 +12,11 @@ const items: Listing[] = [
 ];
 
 describe("ListingListView", () => {
+  it("affiche le chargement", () => {
+    renderWithProviders(<ListingListView items={[]} isLoading={true} />);
+    expect(screen.getByText(/chargement/i)).toBeInTheDocument();
+  });
+
   it("affiche les cartes et un état vide", () => {
     const { rerender } = renderWithProviders(
       <ListingListView items={items} isLoading={false} />

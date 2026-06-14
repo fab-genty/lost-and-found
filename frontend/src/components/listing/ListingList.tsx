@@ -39,15 +39,19 @@ export function ListingList({ type }: { type: ListingType }) {
   return (
     <section>
       <div className="flex flex-wrap gap-3 p-6">
-        {(["country", "region", "city"] as const).map((f) => (
-          <input
-            key={f}
-            className="rounded bg-gray-800 border border-gray-700 px-3 py-2 text-white"
-            placeholder={f === "country" ? "Pays" : f === "region" ? "Région" : "Ville"}
-            value={filters[f]}
-            onChange={(e) => setFilters((s) => ({ ...s, [f]: e.target.value }))}
-          />
-        ))}
+        {(() => {
+          const labels = { country: "Pays", region: "Région", city: "Ville" } as const;
+          return (["country", "region", "city"] as const).map((f) => (
+            <input
+              key={f}
+              className="rounded bg-gray-800 border border-gray-700 px-3 py-2 text-white"
+              aria-label={labels[f]}
+              placeholder={labels[f]}
+              value={filters[f]}
+              onChange={(e) => setFilters((s) => ({ ...s, [f]: e.target.value }))}
+            />
+          ));
+        })()}
       </div>
       <ListingListView items={data?.data ?? []} isLoading={isLoading} />
     </section>
