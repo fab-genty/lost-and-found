@@ -48,18 +48,18 @@ const Footers = () => {
               <ul className="text-gray-400 space-y-3">
                 <li>
                   <a
-                    href="/foundItems"
+                    href="/objets"
                     className="hover:text-white transition-colors duration-200"
                   >
-                    Found Items
+                    Objets trouvés
                   </a>
                 </li>
                 <li>
                   <a
-                    href="/lostItems"
+                    href="/objets/signaler"
                     className="hover:text-white transition-colors duration-200"
                   >
-                    Lost Items
+                    Signaler un objet
                   </a>
                 </li>
               </ul>
