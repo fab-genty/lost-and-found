@@ -1,4 +1,4 @@
-type AuthUser = { id?: string; role?: string } | undefined;
+type AuthUser = { id?: string; role?: string; [key: string]: unknown } | undefined;
 
 export function isAdmin(user: AuthUser): boolean {
   return user?.role === "ADMIN";
