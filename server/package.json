@@ -26,7 +26,6 @@
     "vitest": "^4.1.8"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
     "@prisma/client": "^6.11.1",
     "@prisma/extension-accelerate": "^2.0.1",
     "@types/bcrypt": "^5.0.2",

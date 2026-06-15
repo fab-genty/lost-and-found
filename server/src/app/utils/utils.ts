@@ -33,10 +33,10 @@ const verifyToken = (token: string): JwtPayload => {
 
 const calculateMeta = async (data: any) => {
   const { page = 1, limit = 10 } = data;
-  const res = (await prisma.foundItem.findMany({})).length;
+  const total = await prisma.listing.count({ where: { isDeleted: false } });
 
   const meta = {
-    total: res,
+    total,
     page: Number(page),
     limit: Number(limit),
   };
