@@ -11,6 +11,7 @@
     "build": "prisma generate --no-engine && tsc",
     "test": "vitest run",
     "test:watch": "vitest",
+    "migrate:data": "ts-node scripts/migrate-data.ts",
     "tsc": "tsc"
   },
   "keywords": [],
