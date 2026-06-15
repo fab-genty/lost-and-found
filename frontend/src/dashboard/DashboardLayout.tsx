@@ -6,7 +6,6 @@ import {
   FaClipboardList,
   FaUsers,
   FaBoxOpen,
-  FaExclamationTriangle,
   FaCog,
   FaBars,
   FaTimes,
@@ -48,63 +47,35 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       adminOnly: true,
     },
     {
-      title: "Found Items",
-      icon: <FaSearch />,
-      path: "/dashboard/found-items",
+      title: "Annonces",
+      icon: <FaList />,
+      path: "/dashboard/listings",
       adminOnly: true,
       badge: null,
     },
     {
-      title: "Lost Items",
-      icon: <FaExclamationTriangle />,
-      path: "/dashboard/lost-items",
-      adminOnly: true,
-      badge: null,
-    },
-    {
-      title: "Claims",
+      title: "Réponses",
       icon: <FaClipboardList />,
-      path: "/dashboard/claims",
+      path: "/dashboard/responses",
       adminOnly: true,
       badge: null,
     },
     {
-      title: "Users",
+      title: "Utilisateurs",
       icon: <FaUsers />,
       path: "/dashboard/users",
       badge: null,
       adminOnly: true,
     },
     {
-      title: "Categories",
+      title: "Catégories",
       icon: <FaBoxOpen />,
       path: "/dashboard/categories",
       badge: null,
       adminOnly: true,
     },
     {
-      title: "My Lost Items",
-      icon: <FaSearch />,
-      path: "/dashboard/myLostItems",
-      badge: null,
-      adminOnly: false,
-    },
-    {
-      title: "My Found Items",
-      icon: <FaBoxOpen />,
-      path: "/dashboard/myFoundItems",
-      badge: null,
-      adminOnly: false,
-    },
-    {
-      title: "My Claims",
-      icon: <FaBoxOpen />,
-      path: "/dashboard/myClaimRequest",
-      badge: null,
-      adminOnly: false,
-    },
-    {
-      title: "Settings",
+      title: "Paramètres",
       icon: <FaCog />,
       path: "/dashboard/settings",
       badge: null,
@@ -295,15 +266,11 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             <div className="flex-1 lg:ml-0 ml-4">
               <h1 className="text-white text-xl font-semibold">
                 {location.pathname === "/dashboard" && "Dashboard Overview"}
-                {location.pathname.includes("/found-items") &&
-                  "Found Items Management"}
-                {location.pathname.includes("/lost-items") &&
-                  "Lost Items Management"}
-                {location.pathname.includes("/claims") && "Claims Management"}
-                {location.pathname.includes("/users") && "User Management"}
-                {location.pathname.includes("/categories") &&
-                  "Category Management"}
-                {location.pathname.includes("/settings") && "Settings"}
+                {location.pathname.includes("/listings") && "Gestion des annonces"}
+                {location.pathname.includes("/responses") && "Gestion des réponses"}
+                {location.pathname.includes("/users") && "Gestion des utilisateurs"}
+                {location.pathname.includes("/categories") && "Gestion des catégories"}
+                {location.pathname.includes("/settings") && "Paramètres"}
               </h1>
             </div>
 
@@ -395,31 +362,21 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 
                 <DropdownItem className="hover:bg-gray-700 text-gray-300 hover:text-white">
                   <Link
-                    to="/dashboard/myLostItems"
+                    to="/mon-espace/annonces"
                     className="flex items-center space-x-2 w-full"
                   >
                     <FaList className="text-yellow-400" />
-                    <span>My lost items</span>
+                    <span>Mes annonces</span>
                   </Link>
                 </DropdownItem>
 
                 <DropdownItem className="hover:bg-gray-700 text-gray-300 hover:text-white">
                   <Link
-                    to="/dashboard/myFoundItems"
-                    className="flex items-center space-x-2 w-full"
-                  >
-                    <FaSearch className="text-green-400" />
-                    <span>My found items</span>
-                  </Link>
-                </DropdownItem>
-
-                <DropdownItem className="hover:bg-gray-700 text-gray-300 hover:text-white">
-                  <Link
-                    to="/dashboard/myClaimRequest"
+                    to="/mon-espace/reponses"
                     className="flex items-center space-x-2 w-full"
                   >
                     <FaUser className="text-purple-400" />
-                    <span>My claims</span>
+                    <span>Mes réponses</span>
                   </Link>
                 </DropdownItem>
 

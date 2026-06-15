@@ -8,7 +8,7 @@ const Footers = () => {
           <div className="mb-8 md:mb-0">
             <a href="/" className="flex items-center">
               <span className="self-center text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Lost & Found
+                Retrouver
               </span>
             </a>
             <p className="mt-4 text-gray-300 max-w-md">
@@ -48,18 +48,18 @@ const Footers = () => {
               <ul className="text-gray-400 space-y-3">
                 <li>
                   <a
-                    href="/foundItems"
+                    href="/objets"
                     className="hover:text-white transition-colors duration-200"
                   >
-                    Found Items
+                    Objets trouvés
                   </a>
                 </li>
                 <li>
                   <a
-                    href="/lostItems"
+                    href="/objets/signaler"
                     className="hover:text-white transition-colors duration-200"
                   >
-                    Lost Items
+                    Signaler un objet
                   </a>
                 </li>
               </ul>
@@ -94,7 +94,7 @@ const Footers = () => {
 
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-400 sm:text-center">
-            © 2025 Lost & Found Management. All Rights Reserved.
+            © 2026 Retrouver. All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a

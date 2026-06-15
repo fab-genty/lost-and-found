@@ -33,6 +33,10 @@ export const baseApi = createApi({
     "foundItems",
     "claims",
     "categories",
+    "listings",
+    "responses",
+    "myListings",
+    "myResponses",
   ],
 
   endpoints: () => ({}),
