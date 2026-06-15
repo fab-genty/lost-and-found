@@ -14,5 +14,4 @@ export type TFilter = {
   limit?: number;
   sortBy?: string;
   sortOrder?: string;
-  foundItemName?: string;
 };
