@@ -28,14 +28,14 @@ const Register = () => {
         console.log(res);
         if (res?.success == false) {
           Modals({
-            message: res?.message ? res?.message : "Failed to register",
+            message: res?.message ? res?.message : "Échec de l'inscription",
             status: false,
           });
           return;
         }
         if (res?.success == true) {
           Modals({
-            message: "User registered successfully. Please login again!!!",
+            message: "Inscription réussie. Veuillez vous connecter !",
             status: true,
           });
           navigate("/login");
@@ -45,13 +45,13 @@ const Register = () => {
         Modals({
           message: err?.data?.message
             ? err?.data?.message
-            : "Failed to register",
+            : "Échec de l'inscription",
           status: false,
         });
       }
     } else {
       Modals({
-        message: "Password and confirm password are not same",
+        message: "Les mots de passe ne correspondent pas",
         status: false,
       });
       return;
@@ -66,10 +66,10 @@ const Register = () => {
             <div className="p-8 space-y-6">
               <div className="text-center space-y-2">
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  Create Account
+                  Créer un compte
                 </h1>
                 <p className="text-gray-300">
-                  Join our lost and found community
+                  Rejoignez notre communauté d'objets perdus et trouvés
                 </p>
               </div>
 
@@ -81,16 +81,16 @@ const Register = () => {
               >
                 <div className="space-y-1">
                   <label className="block text-sm font-semibold text-gray-300">
-                    Email Address
+                    Adresse e-mail
                   </label>
                   <div className="relative">
                     <input
                       type="text"
                       {...register("email", {
-                        required: "Email is required",
+                        required: "L'e-mail est requis",
                       })}
                       className="bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 rounded-lg px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 backdrop-blur-sm w-full"
-                      placeholder="name@company.com"
+                      placeholder="nom@entreprise.com"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                       <MdEmail className="w-5 h-5 text-gray-400" />
@@ -105,15 +105,15 @@ const Register = () => {
 
                 <div className="space-y-1">
                   <label className="block text-sm font-semibold text-gray-300">
-                    Username
+                    Nom d'utilisateur
                   </label>
                   <div className="relative">
                     <input
                       type="text"
                       {...register("username", {
-                        required: "Username is required",
+                        required: "Le nom d'utilisateur est requis",
                       })}
-                      placeholder="Choose a username"
+                      placeholder="Choisissez un nom d'utilisateur"
                       className="bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 rounded-lg px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 backdrop-blur-sm w-full"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -129,13 +129,13 @@ const Register = () => {
 
                 <div className="space-y-1">
                   <label className="block text-sm font-semibold text-gray-300">
-                    Profile Image URL
+                    URL de la photo de profil
                   </label>
                   <div className="relative">
                     <input
                       type="text"
                       {...register("userImg")}
-                      placeholder="https://example.com/your-image.jpg"
+                      placeholder="https://exemple.com/votre-image.jpg"
                       className="bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 rounded-lg px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 backdrop-blur-sm w-full"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -152,13 +152,13 @@ const Register = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
-                      Password
+                      Mot de passe
                     </label>
                     <div className="relative">
                       <input
                         type="password"
                         {...register("password", {
-                          required: "Password is required",
+                          required: "Le mot de passe est requis",
                         })}
                         placeholder="••••••••"
                         className="bg-gray-50/50 border-2 border-gray-200 text-gray-900 text-sm rounded-xl focus:border-blue-400 block w-full p-3.5 pr-12 dark:bg-gray-700/50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-400 transition-all duration-200 hover:border-gray-300 outline-none"
@@ -176,13 +176,13 @@ const Register = () => {
 
                   <div className="space-y-1">
                     <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
-                      Confirm Password
+                      Confirmer le mot de passe
                     </label>
                     <div className="relative">
                       <input
                         type="password"
                         {...register("conpassword", {
-                          required: "Confirm Password is required",
+                          required: "La confirmation du mot de passe est requise",
                         })}
                         placeholder="••••••••"
                         className="bg-gray-50/50 border-2 border-gray-200 text-gray-900 text-sm rounded-xl focus:border-blue-400 block w-full p-3.5 pr-12 dark:bg-gray-700/50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-400 transition-all duration-200 hover:border-gray-300 outline-none"
@@ -203,12 +203,12 @@ const Register = () => {
                   <div className="flex justify-center py-4">
                     <div className="flex items-center space-x-2">
                       <Spinner
-                        aria-label="Loading"
+                        aria-label="Chargement"
                         size="md"
                         className="text-blue-600"
                       />
                       <span className="text-gray-600 dark:text-gray-400">
-                        Creating your account...
+                        Création de votre compte…
                       </span>
                     </div>
                   </div>
@@ -217,18 +217,18 @@ const Register = () => {
                     type="submit"
                     className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg hover:shadow-xl"
                   >
-                    Create Account
+                    Créer un compte
                   </button>
                 )}
 
                 <div className="text-center pt-4">
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Already have an account?{" "}
+                    Vous avez déjà un compte ?{" "}
                     <a
                       href="/login"
                       className="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200"
                     >
-                      Sign in here
+                      Connectez-vous ici
                     </a>
                   </p>
                 </div>

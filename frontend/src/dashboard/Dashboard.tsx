@@ -61,29 +61,29 @@ const Dashboard = () => {
     {
       id: 1,
       type: "found",
-      title: "iPhone 13 Pro found in Library",
-      time: "2 hours ago",
+      title: "iPhone 13 Pro trouvé à la bibliothèque",
+      time: "Il y a 2 heures",
       status: "new",
     },
     {
       id: 2,
       type: "claim",
-      title: "Claim submitted for Wallet",
-      time: "4 hours ago",
+      title: "Réclamation soumise pour un portefeuille",
+      time: "Il y a 4 heures",
       status: "pending",
     },
     {
       id: "3",
       type: "lost",
-      title: "MacBook reported lost in Cafeteria",
-      time: "6 hours ago",
+      title: "MacBook signalé perdu à la cafétéria",
+      time: "Il y a 6 heures",
       status: "active",
     },
     {
       id: 4,
       type: "resolved",
-      title: "Keys successfully returned to owner",
-      time: "8 hours ago",
+      title: "Clés restituées avec succès à leur propriétaire",
+      time: "Il y a 8 heures",
       status: "resolved",
     },
   ];
@@ -93,10 +93,11 @@ const Dashboard = () => {
       {/* Welcome Section */}
       <div className="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl p-6 text-white">
         <h1 className="text-2xl font-bold mb-2">
-          Welcome back to the Dashboard!
+          Bon retour sur le tableau de bord !
         </h1>
         <p className="text-cyan-100">
-          Here's what's happening with your lost and found system today.
+          Voici ce qui se passe aujourd'hui sur votre système d'objets perdus et
+          trouvés.
         </p>
       </div>
 
@@ -105,7 +106,7 @@ const Dashboard = () => {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Total Found Items</p>
+              <p className="text-gray-400 text-sm">Total objets trouvés</p>
               <p className="text-2xl font-bold text-white">
                 {adminStats?.data?.foundItems || "0"}
               </p>
@@ -119,7 +120,7 @@ const Dashboard = () => {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Total Lost Items</p>
+              <p className="text-gray-400 text-sm">Total objets perdus</p>
               <p className="text-2xl font-bold text-red-500">
                 {adminStats?.data?.lostItems || "0"}
               </p>
@@ -133,7 +134,7 @@ const Dashboard = () => {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Pending Claims</p>
+              <p className="text-gray-400 text-sm">Réclamations en attente</p>
               <p className="text-2xl font-bold text-yellow-500">
                 {adminStats?.data?.pendingClaims || "0"}
               </p>
@@ -147,7 +148,7 @@ const Dashboard = () => {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Active Users</p>
+              <p className="text-gray-400 text-sm">Utilisateurs actifs</p>
               <p className="text-2xl font-bold text-green-500">
                 {adminStats?.data?.totalUsers || "0"}
               </p>
@@ -164,7 +165,7 @@ const Dashboard = () => {
         {/* Activity Feed */}
         <div className="bg-gradient-to-br from-gray-800 rounded-2xl p-6 border border-gray-700">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-white">Recent Activity</h2>
+            <h2 className="text-xl font-bold text-white">Activité récente</h2>
           </div>
           <div className="space-y-4">
             {recentActivity.map((activity) => (
@@ -202,7 +203,12 @@ const Dashboard = () => {
                       : "bg-green-900 text-green-300"
                   }`}
                 >
-                  {activity.status}
+                  {{
+                    new: "nouveau",
+                    pending: "en attente",
+                    active: "actif",
+                    resolved: "résolu",
+                  }[activity.status] ?? activity.status}
                 </span>
               </div>
             ))}
@@ -211,26 +217,26 @@ const Dashboard = () => {
 
         {/* Quick Actions */}
         <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 border border-gray-700">
-          <h2 className="text-xl font-bold text-white mb-6">Quick Actions</h2>
+          <h2 className="text-xl font-bold text-white mb-6">Actions rapides</h2>
 
           <div className="space-y-3">
             <Link to="/dashboard/categories">
               <button className="w-full flex items-center justify-between p-4 hover:bg-gray-700/50 transition-color rounded-lg transition-all duration-200 text-white font-medium">
-                <span>Add New Category</span>
+                <span>Ajouter une catégorie</span>
                 <FaChartLine className="w-5 h-5" />
               </button>
             </Link>
 
             <Link to="/dashboard/users">
               <button className="w-full flex items-center justify-between p-4 hover:bg-gray-700/50 transition-color rounded-lg transition-all duration-200 text-white font-medium">
-                <span>Manage Users</span>
+                <span>Gérer les utilisateurs</span>
                 <FaUsers className="w-5 h-5" />
               </button>
             </Link>
 
             <Link to="/dashboard/settings">
               <button className="w-full flex items-center justify-between p-4 hover:bg-gray-700/50 transition-color rounded-lg transition-all duration-200 text-white font-medium">
-                <span>Settings</span>
+                <span>Paramètres</span>
                 <FaBoxOpen className="w-5 h-5" />
               </button>
             </Link>

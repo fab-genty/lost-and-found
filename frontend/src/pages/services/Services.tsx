@@ -17,12 +17,12 @@ interface Service {
 // Icon mapping for fallback services
 const getServiceIcon = (title: string): React.ReactElement => {
   const iconMapping: { [key: string]: React.ReactElement } = {
-    "Lost Item Reporting": <TbReport size="30" />,
-    "Search for Lost Items": <FaSearch size="30" />,
-    "Location-Based Services": <IoLocationSharp size="33" />,
-    "Help Desk Support": <BiSupport size="30" />,
-    "Data Encryption and Privacy": <IoShieldCheckmark size="30" />,
-    "Item Claiming": <FaGift size="27" />,
+    "Signalement d'objets perdus": <TbReport size="30" />,
+    "Recherche d'objets perdus": <FaSearch size="30" />,
+    "Services géolocalisés": <IoLocationSharp size="33" />,
+    "Assistance et support": <BiSupport size="30" />,
+    "Chiffrement et confidentialité des données": <IoShieldCheckmark size="30" />,
+    "Réclamation d'objets": <FaGift size="27" />,
   };
 
   return iconMapping[title] || <FaSearch size="30" />;
@@ -30,34 +30,34 @@ const getServiceIcon = (title: string): React.ReactElement => {
 
 const defaultServices: Service[] = [
   {
-    title: "Lost Item Reporting",
+    title: "Signalement d'objets perdus",
     description:
-      "Easily report lost items by providing detailed descriptions, locations, and images, helping to track down your missing belongings.",
+      "Signalez facilement vos objets perdus en fournissant des descriptions détaillées, des lieux et des images, pour aider à retrouver vos affaires manquantes.",
   },
   {
-    title: "Search for Lost Items",
+    title: "Recherche d'objets perdus",
     description:
-      "Quickly search the database for your lost items using keywords, categories, or locations to find matches.",
+      "Recherchez rapidement vos objets perdus dans la base de données à l'aide de mots-clés, de catégories ou de lieux pour trouver des correspondances.",
   },
   {
-    title: "Location-Based Services",
+    title: "Services géolocalisés",
     description:
-      "View and track lost and found items within specific geographic areas, focusing your search on the most relevant locations.",
+      "Consultez et suivez les objets perdus et trouvés dans des zones géographiques précises, en ciblant votre recherche sur les lieux les plus pertinents.",
   },
   {
-    title: "Help Desk Support",
+    title: "Assistance et support",
     description:
-      "Get assistance with your lost or found reports, claims, or other queries through our dedicated help desk service.",
+      "Obtenez de l'aide pour vos signalements d'objets perdus ou trouvés, vos réclamations ou toute autre question grâce à notre service d'assistance dédié.",
   },
   {
-    title: "Data Encryption and Privacy",
+    title: "Chiffrement et confidentialité des données",
     description:
-      "Protect your information with industry-standard encryption, ensuring your personal data remains secure and confidential.",
+      "Protégez vos informations grâce à un chiffrement aux normes du secteur, garantissant que vos données personnelles restent sûres et confidentielles.",
   },
   {
-    title: "Item Claiming",
+    title: "Réclamation d'objets",
     description:
-      "Verify and claim found items securely through a streamlined process, ensuring that only the rightful owner can retrieve the item.",
+      "Vérifiez et réclamez les objets trouvés en toute sécurité grâce à un processus simplifié, garantissant que seul le propriétaire légitime puisse récupérer l'objet.",
   },
 ];
 
@@ -84,14 +84,14 @@ const Services = () => {
       <div className="px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         <div className="mx-auto flex max-w-4xl flex-col items-center space-y-4 text-center mb-16">
           <h2 className="text-4xl md:text-5xl tracking-tight font-extrabold leading-tight text-white">
-            Our{" "}
+            Nos{" "}
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Services
+              services
             </span>
           </h2>
           <p className="mb-6 font-light text-gray-300 text-lg md:text-xl max-w-2xl">
-            Comprehensive lost and found management solutions designed to help
-            you recover what matters most
+            Des solutions complètes de gestion des objets perdus et trouvés,
+            conçues pour vous aider à récupérer ce qui compte le plus
           </p>
         </div>
 

@@ -36,7 +36,7 @@ const Login = () => {
       const res: any = await login(data);
       console.log(res);
       if (res?.data) {
-        Modals({ message: "User logged in successfully", status: true });
+        Modals({ message: "Connexion réussie", status: true });
         setUserLocalStorage(res?.data?.data?.token);
         navigate("/");
         // Reload the page to update user state
@@ -45,7 +45,7 @@ const Login = () => {
         Modals({ message: res?.error?.data?.message, status: false });
       }
     } catch (err: any) {
-      Modals({ message: "Failed to login", status: false });
+      Modals({ message: "Échec de la connexion", status: false });
     }
   };
 
@@ -57,10 +57,10 @@ const Login = () => {
             <div className="p-8 space-y-6">
               <div className="text-center space-y-2">
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  Welcome Back
+                  Bon retour
                 </h1>
                 <p className="text-gray-300">
-                  Sign in to your account
+                  Connectez-vous à votre compte
                 </p>
               </div>
 
@@ -72,16 +72,16 @@ const Login = () => {
               >
                 <div className="space-y-1">
                   <label className="block text-sm font-semibold text-gray-300">
-                    Email or Username
+                    E-mail ou nom d'utilisateur
                   </label>
                   <div className="relative">
                     <input
                       type="text"
                       {...register("username", {
-                        required: "Username is required",
+                        required: "Le nom d'utilisateur est requis",
                       })}
                       className="bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 rounded-lg px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 backdrop-blur-sm w-full"
-                      placeholder="name@company.com or username"
+                      placeholder="nom@entreprise.com ou nom d'utilisateur"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                       <MdEmail className="w-5 h-5 text-gray-400" />
@@ -96,13 +96,13 @@ const Login = () => {
 
                 <div className="space-y-1">
                   <label className="block text-sm font-semibold text-gray-300">
-                    Password
+                    Mot de passe
                   </label>
                   <div className="relative">
                     <input
                       type={showPassword ? "text" : "password"}
                       {...register("password", {
-                        required: "Password is required",
+                        required: "Le mot de passe est requis",
                       })}
                       placeholder="••••••••"
                       className="bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 rounded-lg px-4 py-3 pr-20 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 backdrop-blur-sm w-full"
@@ -135,12 +135,12 @@ const Login = () => {
                   <div className="flex justify-center py-4">
                     <div className="flex items-center space-x-2">
                       <Spinner
-                        aria-label="Loading"
+                        aria-label="Chargement"
                         size="md"
                         className="text-blue-600"
                       />
                       <span className="text-gray-300">
-                        Signing you in...
+                        Connexion en cours…
                       </span>
                     </div>
                   </div>
@@ -149,7 +149,7 @@ const Login = () => {
                     type="submit"
                     className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg hover:shadow-xl"
                   >
-                    Sign In
+                    Se connecter
                   </button>
                 )}
 
@@ -158,7 +158,7 @@ const Login = () => {
                   <div className="flex items-center">
                     <div className="flex-grow border-t border-gray-600"></div>
                     <span className="px-3 text-center text-sm text-gray-400 font-medium">
-                      Quick Demo Login
+                      Connexion démo rapide
                     </span>
                     <div className="flex-grow border-t border-gray-600"></div>
                   </div>
@@ -168,26 +168,26 @@ const Login = () => {
                       onClick={fillAdminCredentials}
                       className="flex-1 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-md"
                     >
-                      Login as Admin
+                      Connexion Admin
                     </button>
                     <button
                       type="button"
                       onClick={fillUserCredentials}
                       className="flex-1 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-md"
                     >
-                      Login as User
+                      Connexion Utilisateur
                     </button>
                   </div>
                 </div>
 
                 <div className="text-center pt-4">
                   <p className="text-sm text-gray-300">
-                    Don't have an account yet?{" "}
+                    Pas encore de compte ?{" "}
                     <a
                       href="/register"
                       className="font-semibold text-blue-400 hover:text-cyan-400 transition-colors duration-200"
                     >
-                      Sign up here
+                      Inscrivez-vous ici
                     </a>
                   </p>
                 </div>

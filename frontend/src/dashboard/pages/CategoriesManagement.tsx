@@ -67,9 +67,9 @@ const CategoriesManagement = () => {
         }).unwrap();
         setEditingId(null);
         setEditForm({ name: "" });
-        toast.success("Category updated successfully");
+        toast.success("Catégorie mise à jour avec succès");
       } catch (error: any) {
-        toast.error(error?.data?.message || "Failed to update category");
+        toast.error(error?.data?.message || "Échec de la mise à jour de la catégorie");
       }
     }
   };
@@ -85,9 +85,9 @@ const CategoriesManagement = () => {
         await createCategory({ name: newCategory.name.trim() }).unwrap();
         setNewCategory({ name: "" });
         setShowAddForm(false);
-        toast.success("Category added successfully");
+        toast.success("Catégorie ajoutée avec succès");
       } catch (error: any) {
-        toast.error(error?.data?.message || "Failed to create category");
+        toast.error(error?.data?.message || "Échec de la création de la catégorie");
       }
     }
   };
@@ -103,9 +103,9 @@ const CategoriesManagement = () => {
         await deleteCategory(categoryToDelete.id).unwrap();
         setShowDeleteModal(false);
         setCategoryToDelete(null);
-        toast.success("Category deleted successfully");
+        toast.success("Catégorie supprimée avec succès");
       } catch (error: any) {
-        toast.error(error?.data?.message || "Failed to delete category");
+        toast.error(error?.data?.message || "Échec de la suppression de la catégorie");
       }
     }
   };
@@ -116,7 +116,7 @@ const CategoriesManagement = () => {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
+    return new Date(dateString).toLocaleDateString("fr-FR", {
       year: "numeric",
       month: "short",
       day: "numeric",
@@ -145,9 +145,9 @@ const CategoriesManagement = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white">Category Management</h1>
+          <h1 className="text-3xl font-bold text-white">Gestion des catégories</h1>
           <p className="text-gray-400 mt-1">
-            Manage item categories and classifications
+            Gérer les catégories et classifications des objets
           </p>
         </div>
         <button
@@ -155,7 +155,7 @@ const CategoriesManagement = () => {
           className="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
         >
           <FaPlus className="mr-2" />
-          Add Category
+          Ajouter une catégorie
         </button>
       </div>
 
@@ -164,7 +164,7 @@ const CategoriesManagement = () => {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Total Categories</p>
+              <p className="text-gray-400 text-sm">Total catégories</p>
               <p className="text-2xl font-bold text-white">
                 {categories.length}
               </p>
@@ -178,7 +178,7 @@ const CategoriesManagement = () => {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Recently Added</p>
+              <p className="text-gray-400 text-sm">Ajoutées récemment</p>
               <p className="text-2xl font-bold text-green-500">
                 {
                   categories.filter((cat) => {
@@ -201,12 +201,12 @@ const CategoriesManagement = () => {
       {showAddForm && (
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <h3 className="text-lg font-semibold text-white mb-4">
-            Add New Category
+            Ajouter une catégorie
           </h3>
           <div className="flex flex-col md:flex-row gap-4">
             <input
               type="text"
-              placeholder="Category name"
+              placeholder="Nom de la catégorie"
               value={newCategory.name}
               onChange={(e) =>
                 setNewCategory({ ...newCategory, name: e.target.value })
@@ -220,7 +220,7 @@ const CategoriesManagement = () => {
                 className="px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-500 text-white rounded-lg transition-colors flex items-center gap-2"
               >
                 <FaSave />
-                {isCreating ? "Adding..." : "Add"}
+                {isCreating ? "Ajout…" : "Ajouter"}
               </button>
               <button
                 onClick={() => {
@@ -230,7 +230,7 @@ const CategoriesManagement = () => {
                 className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors flex items-center gap-2"
               >
                 <FaTimes />
-                Cancel
+                Annuler
               </button>
             </div>
           </div>
@@ -243,7 +243,7 @@ const CategoriesManagement = () => {
           <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
             type="text"
-            placeholder="Search categories..."
+            placeholder="Rechercher des catégories…"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -258,13 +258,13 @@ const CategoriesManagement = () => {
             <thead className="bg-gray-900">
               <tr>
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-300">
-                  Category Name
+                  Nom de la catégorie
                 </th>
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-300">
-                  Created At
+                  Créée le
                 </th>
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-300">
-                  Updated At
+                  Modifiée le
                 </th>
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-300">
                   Actions
@@ -346,8 +346,8 @@ const CategoriesManagement = () => {
             <FaBoxOpen className="mx-auto text-4xl text-gray-500 mb-4" />
             <p className="text-gray-400">
               {searchTerm
-                ? "No categories found matching your search criteria."
-                : "No categories found. Add one to get started."}
+                ? "Aucune catégorie ne correspond à votre recherche."
+                : "Aucune catégorie. Ajoutez-en une pour commencer."}
             </p>
           </div>
         )}
@@ -362,15 +362,15 @@ const CategoriesManagement = () => {
                 <FaTrash className="h-6 w-6 text-red-600" />
               </div>
               <h3 className="text-lg font-medium text-white mt-4">
-                Delete Category
+                Supprimer la catégorie
               </h3>
               <div className="mt-2 px-7 py-3">
                 <p className="text-sm text-gray-300">
-                  Are you sure you want to delete the category "
+                  Voulez-vous vraiment supprimer la catégorie «&nbsp;
                   <span className="font-medium text-white">
                     {categoryToDelete?.name}
                   </span>
-                  "? This action cannot be undone.
+                  &nbsp;» ? Cette action est irréversible.
                 </p>
               </div>
               <div className="items-center px-4 py-3">
@@ -380,14 +380,14 @@ const CategoriesManagement = () => {
                     disabled={isDeleting}
                     className="px-4 py-2 bg-red-500 text-white text-base font-medium rounded-md w-24 shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 disabled:bg-gray-400"
                   >
-                    {isDeleting ? "..." : "Delete"}
+                    {isDeleting ? "…" : "Supprimer"}
                   </button>
                   <button
                     onClick={handleCancelDelete}
                     disabled={isDeleting}
                     className="px-4 py-2 bg-gray-500 text-white text-base font-medium rounded-md w-24 shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300 disabled:bg-gray-400"
                   >
-                    Cancel
+                    Annuler
                   </button>
                 </div>
               </div>

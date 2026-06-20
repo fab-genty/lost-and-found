@@ -76,9 +76,9 @@ const UsersManagement = () => {
   const handleRoleChange = async (id: string, newRole: string) => {
     try {
       await changeUserRole({ id, role: newRole }).unwrap();
-      toast.success("User role changed successfully");
+      toast.success("Rôle de l'utilisateur modifié avec succès");
     } catch (error) {
-      toast.error("Failed to change user role");
+      toast.error("Échec de la modification du rôle de l'utilisateur");
     }
   };
 
@@ -86,17 +86,17 @@ const UsersManagement = () => {
     try {
       if (newStatus === "SUSPENDED") {
         await blockUser(id).unwrap();
-        toast.success("User blocked successfully");
+        toast.success("Utilisateur bloqué avec succès");
       } else if (newStatus === "ACTIVE") {
         await blockUser(id).unwrap();
-        toast.success("User activated successfully");
+        toast.success("Utilisateur activé avec succès");
       } else {
         toast.info(
-          "Status change functionality needs to be implemented on the backend"
+          "La fonction de changement de statut doit être implémentée côté backend"
         );
       }
     } catch (error) {
-      toast.error("Failed to update user status");
+      toast.error("Échec de la mise à jour du statut de l'utilisateur");
     }
   };
 
@@ -111,11 +111,11 @@ const UsersManagement = () => {
     setIsDeleteLoading(true);
     try {
       await softDeleteUser(deletingUser.id).unwrap();
-      toast.success("User deleted successfully");
+      toast.success("Utilisateur supprimé avec succès");
       setIsDeleteModalOpen(false);
       setDeletingUser(null);
     } catch (error) {
-      toast.error("Failed to delete user");
+      toast.error("Échec de la suppression de l'utilisateur");
     } finally {
       setIsDeleteLoading(false);
     }
@@ -163,7 +163,7 @@ const UsersManagement = () => {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString();
+    return new Date(dateString).toLocaleDateString("fr-FR");
   };
 
   if (isLoading) {
@@ -186,9 +186,9 @@ const UsersManagement = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white">User Management</h1>
+          <h1 className="text-3xl font-bold text-white">Gestion des utilisateurs</h1>
           <p className="text-gray-400 mt-1">
-            Manage system users and permissions
+            Gérer les utilisateurs et les permissions du système
           </p>
         </div>
       </div>
@@ -198,7 +198,7 @@ const UsersManagement = () => {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Total Users</p>
+              <p className="text-gray-400 text-sm">Total utilisateurs</p>
               <p className="text-2xl font-bold text-white">{users.length}</p>
             </div>
             <div className="bg-gray-500 p-3 rounded-lg">
@@ -210,7 +210,7 @@ const UsersManagement = () => {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Active Users</p>
+              <p className="text-gray-400 text-sm">Utilisateurs actifs</p>
               <p className="text-2xl font-bold text-green-500">
                 {users.filter((user: User) => user.status === "ACTIVE").length}
               </p>
@@ -224,7 +224,7 @@ const UsersManagement = () => {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Admins</p>
+              <p className="text-gray-400 text-sm">Administrateurs</p>
               <p className="text-2xl font-bold text-red-500">
                 {users.filter((user: User) => user.role === "ADMIN").length}
               </p>
@@ -238,7 +238,7 @@ const UsersManagement = () => {
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Suspended</p>
+              <p className="text-gray-400 text-sm">Suspendus</p>
               <p className="text-2xl font-bold text-yellow-500">
                 {
                   users.filter((user: User) => user.status === "SUSPENDED")
@@ -261,7 +261,7 @@ const UsersManagement = () => {
               <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search users..."
+                placeholder="Rechercher des utilisateurs…"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -275,9 +275,9 @@ const UsersManagement = () => {
               onChange={(e) => setRoleFilter(e.target.value)}
               className="px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="ALL">All Roles</option>
-              <option value="ADMIN">Admin</option>
-              <option value="USER">User</option>
+              <option value="ALL">Tous les rôles</option>
+              <option value="ADMIN">Administrateur</option>
+              <option value="USER">Utilisateur</option>
             </select>
 
             <select
@@ -285,9 +285,9 @@ const UsersManagement = () => {
               onChange={(e) => setStatusFilter(e.target.value)}
               className="px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="ALL">All Status</option>
-              <option value="ACTIVE">Active</option>
-              <option value="SUSPENDED">Suspended</option>
+              <option value="ALL">Tous les statuts</option>
+              <option value="ACTIVE">Actif</option>
+              <option value="SUSPENDED">Suspendu</option>
             </select>
           </div>
         </div>
@@ -300,16 +300,16 @@ const UsersManagement = () => {
             <thead className="bg-gray-900">
               <tr>
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-300">
-                  User
+                  Utilisateur
                 </th>
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-300">
-                  Role
+                  Rôle
                 </th>
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-300">
-                  Status
+                  Statut
                 </th>
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-300">
-                  Joined
+                  Inscrit le
                 </th>
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-300">
                   Actions
@@ -345,8 +345,8 @@ const UsersManagement = () => {
                         user.role
                       )}`}
                     >
-                      <option value="USER">User</option>
-                      <option value="ADMIN">Admin</option>
+                      <option value="USER">Utilisateur</option>
+                      <option value="ADMIN">Administrateur</option>
                     </select>
                   </td>
                   <td className="px-6 py-4">
@@ -359,8 +359,8 @@ const UsersManagement = () => {
                         user.status
                       )}`}
                     >
-                      <option value="ACTIVE">Active</option>
-                      <option value="SUSPENDED">Suspended</option>
+                      <option value="ACTIVE">Actif</option>
+                      <option value="SUSPENDED">Suspendu</option>
                     </select>
                   </td>
                   <td className="px-6 py-4 text-gray-300">
@@ -372,7 +372,7 @@ const UsersManagement = () => {
                       <button
                         onClick={() => handleDelete(user)}
                         className="p-2 text-red-500 hover:bg-red-500 hover:text-white rounded-lg transition-colors"
-                        title="Delete User"
+                        title="Supprimer l'utilisateur"
                       >
                         <FaTrash />
                       </button>
@@ -388,7 +388,7 @@ const UsersManagement = () => {
           <div className="text-center py-12">
             <FaUser className="mx-auto text-4xl text-gray-500 mb-4" />
             <p className="text-gray-400">
-              No users found matching your criteria
+              Aucun utilisateur ne correspond à vos critères
             </p>
           </div>
         )}
@@ -404,11 +404,11 @@ const UsersManagement = () => {
                   <FaTrash className="text-red-600 text-xl" />
                 </div>
                 <h2 className="text-xl font-bold text-white mb-2">
-                  Delete User
+                  Supprimer l'utilisateur
                 </h2>
                 <p className="text-gray-400 mb-4">
-                  Are you sure you want to delete this user? This action cannot
-                  be undone.
+                  Voulez-vous vraiment supprimer cet utilisateur ? Cette action
+                  est irréversible.
                 </p>
               </div>
 
@@ -426,11 +426,11 @@ const UsersManagement = () => {
                     </div>
                   </div>
                   <div className="flex justify-between text-sm text-gray-500">
-                    <span>Role: {deletingUser.role}</span>
-                    <span>Status: {deletingUser.status}</span>
+                    <span>Rôle : {deletingUser.role}</span>
+                    <span>Statut : {deletingUser.status}</span>
                   </div>
                   <div className="text-sm text-gray-500 mt-1">
-                    Joined: {formatDate(deletingUser.createdAt)}
+                    Inscrit le : {formatDate(deletingUser.createdAt)}
                   </div>
                 </div>
               )}
@@ -442,7 +442,7 @@ const UsersManagement = () => {
                   disabled={isDeleteLoading}
                   className="flex-1 bg-gray-600 hover:bg-gray-700 disabled:bg-gray-500 disabled:cursor-not-allowed text-white py-2 px-4 rounded-lg transition-colors"
                 >
-                  Cancel
+                  Annuler
                 </button>
                 <button
                   type="button"
@@ -472,10 +472,10 @@ const UsersManagement = () => {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         ></path>
                       </svg>
-                      Deleting...
+                      Suppression…
                     </>
                   ) : (
-                    "Delete User"
+                    "Supprimer l'utilisateur"
                   )}
                 </button>
               </div>

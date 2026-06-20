@@ -40,13 +40,13 @@ const Settings = () => {
 
   const [settings, setSettings] = useState({
     // General Settings
-    siteName: "Lost & Found System",
-    siteDescription: "A comprehensive lost and found management system",
+    siteName: "Système Retrouver",
+    siteDescription: "Un système complet de gestion des objets perdus et trouvés",
     contactEmail: "contact@lostandfound.com",
     supportEmail: "support@lostandfound.com",
     siteUrl: "https://lostandfound.com",
-    timezone: "UTC",
-    language: "en",
+    timezone: "Europe/Paris",
+    language: "fr",
 
     // Notification Settings
     emailNotifications: true,
@@ -75,7 +75,7 @@ const Settings = () => {
     smtpUsername: "",
     smtpPassword: "",
     smtpSecure: true,
-    fromName: "Lost & Found System",
+    fromName: "Système Retrouver",
     fromEmail: "noreply@lostandfound.com",
   });
 
@@ -88,14 +88,14 @@ const Settings = () => {
 
   const handleSave = () => {
     // Here you would typically send the settings to your backend
-    toast.success("Settings saved successfully");
+    toast.success("Paramètres enregistrés avec succès");
   };
 
   const handleTestEmail = () => {
     // Here you would test the email configuration
-    toast.info("Testing email configuration...");
+    toast.info("Test de la configuration e-mail…");
     setTimeout(() => {
-      toast.success("Email test successful!");
+      toast.success("Test e-mail réussi !");
     }, 2000);
   };
 
@@ -108,11 +108,11 @@ const Settings = () => {
         return;
       }
       if (res?.data?.statusCode === 200) {
-        toast.success("Password changed successfully!");
+        toast.success("Mot de passe modifié avec succès !");
         passwordForm.reset();
       }
     } catch (err: any) {
-      toast.error("Failed to change password.");
+      toast.error("Échec de la modification du mot de passe.");
     }
   };
 
@@ -125,14 +125,14 @@ const Settings = () => {
       }
       if (res?.data?.statusCode === 200) {
         toast.success(
-          `Email changed successfully! Your new email is ${data.email}. Please login again.`
+          `E-mail modifié avec succès ! Votre nouvel e-mail est ${data.email}. Veuillez vous reconnecter.`
         );
         emailForm.reset();
         removeUserLocalStorage();
         navigate("/login");
       }
     } catch (err: any) {
-      toast.error("Failed to change email.");
+      toast.error("Échec de la modification de l'e-mail.");
     }
   };
 
@@ -145,24 +145,24 @@ const Settings = () => {
       }
       if (res?.data?.statusCode === 200) {
         toast.success(
-          `Username changed successfully! Your new username is ${data.username}. Please login again.`
+          `Nom d'utilisateur modifié avec succès ! Votre nouveau nom d'utilisateur est ${data.username}. Veuillez vous reconnecter.`
         );
         usernameForm.reset();
         removeUserLocalStorage();
         navigate("/login");
       }
     } catch (err: any) {
-      toast.error("Failed to change username.");
+      toast.error("Échec de la modification du nom d'utilisateur.");
     }
   };
 
   const tabs = [
-    { id: "account", label: "Account", icon: <FaUser /> },
-    { id: "general", label: "General", icon: <FaGlobe /> },
+    { id: "account", label: "Compte", icon: <FaUser /> },
+    { id: "general", label: "Général", icon: <FaGlobe /> },
     { id: "notifications", label: "Notifications", icon: <FaBell /> },
-    { id: "security", label: "Security", icon: <FaShieldAlt /> },
-    { id: "system", label: "System", icon: <FaDatabase /> },
-    { id: "email", label: "Email", icon: <FaEnvelope /> },
+    { id: "security", label: "Sécurité", icon: <FaShieldAlt /> },
+    { id: "system", label: "Système", icon: <FaDatabase /> },
+    { id: "email", label: "E-mail", icon: <FaEnvelope /> },
   ];
 
   return (
@@ -170,9 +170,9 @@ const Settings = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white">Settings</h1>
+          <h1 className="text-3xl font-bold text-white">Paramètres</h1>
           <p className="text-gray-400 mt-1">
-            Configure system settings and preferences
+            Configurer les paramètres et préférences du système
           </p>
         </div>
         <button
@@ -180,7 +180,7 @@ const Settings = () => {
           className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
         >
           <FaSave className="mr-2" />
-          Save Changes
+          Enregistrer
         </button>
       </div>
 
@@ -214,13 +214,13 @@ const Settings = () => {
             {activeTab === "general" && (
               <div className="space-y-6">
                 <h2 className="text-xl font-semibold text-white">
-                  General Settings
+                  Paramètres généraux
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Site Name
+                      Nom du site
                     </label>
                     <input
                       type="text"
@@ -234,7 +234,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Contact Email
+                      E-mail de contact
                     </label>
                     <input
                       type="email"
@@ -248,7 +248,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Support Email
+                      E-mail d'assistance
                     </label>
                     <input
                       type="email"
@@ -262,7 +262,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Site URL
+                      URL du site
                     </label>
                     <input
                       type="url"
@@ -276,7 +276,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Timezone
+                      Fuseau horaire
                     </label>
                     <select
                       value={settings.timezone}
@@ -286,16 +286,17 @@ const Settings = () => {
                       className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="UTC">UTC</option>
-                      <option value="America/New_York">Eastern Time</option>
-                      <option value="America/Chicago">Central Time</option>
-                      <option value="America/Denver">Mountain Time</option>
-                      <option value="America/Los_Angeles">Pacific Time</option>
+                      <option value="Europe/Paris">Heure de Paris</option>
+                      <option value="America/New_York">Heure de l'Est</option>
+                      <option value="America/Chicago">Heure du Centre</option>
+                      <option value="America/Denver">Heure des Rocheuses</option>
+                      <option value="America/Los_Angeles">Heure du Pacifique</option>
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Language
+                      Langue
                     </label>
                     <select
                       value={settings.language}
@@ -304,17 +305,17 @@ const Settings = () => {
                       }
                       className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
-                      <option value="en">English</option>
-                      <option value="es">Spanish</option>
-                      <option value="fr">French</option>
-                      <option value="de">German</option>
+                      <option value="fr">Français</option>
+                      <option value="en">Anglais</option>
+                      <option value="es">Espagnol</option>
+                      <option value="de">Allemand</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Site Description
+                    Description du site
                   </label>
                   <textarea
                     value={settings.siteDescription}
@@ -332,13 +333,13 @@ const Settings = () => {
             {activeTab === "account" && (
               <div className="space-y-8">
                 <h2 className="text-xl font-semibold text-white">
-                  Account Management
+                  Gestion du compte
                 </h2>
 
                 {/* Change Password Section */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium text-white">
-                    Change Password
+                    Modifier le mot de passe
                   </h3>
                   <form
                     onSubmit={passwordForm.handleSubmit(handleChangePassword)}
@@ -347,16 +348,16 @@ const Settings = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-300 mb-2">
-                          Current Password
+                          Mot de passe actuel
                         </label>
                         <div className="relative">
                           <input
                             type={showPassword ? "text" : "password"}
                             {...passwordForm.register("currentPassword", {
-                              required: "Current password is required",
+                              required: "Le mot de passe actuel est requis",
                             })}
                             className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Enter current password"
+                            placeholder="Saisir le mot de passe actuel"
                           />
                           <button
                             type="button"
@@ -382,19 +383,19 @@ const Settings = () => {
 
                       <div>
                         <label className="block text-sm font-medium text-gray-300 mb-2">
-                          New Password
+                          Nouveau mot de passe
                         </label>
                         <input
                           type="password"
                           {...passwordForm.register("newPassword", {
-                            required: "New password is required",
+                            required: "Le nouveau mot de passe est requis",
                             minLength: {
                               value: 6,
-                              message: "Password must be at least 6 characters",
+                              message: "Le mot de passe doit comporter au moins 6 caractères",
                             },
                           })}
                           className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          placeholder="Enter new password"
+                          placeholder="Saisir le nouveau mot de passe"
                         />
                         {passwordForm.formState.errors.newPassword && (
                           <p className="text-red-400 text-sm mt-1">
@@ -412,7 +413,7 @@ const Settings = () => {
                       disabled={isPasswordLoading}
                       className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-lg transition-colors"
                     >
-                      {isPasswordLoading ? "Changing..." : "Change Password"}
+                      {isPasswordLoading ? "Modification…" : "Modifier le mot de passe"}
                     </button>
                   </form>
                 </div>
@@ -420,7 +421,7 @@ const Settings = () => {
                 {/* Change Email Section */}
                 <div className="space-y-4 border-t border-gray-700 pt-6">
                   <h3 className="text-lg font-medium text-white">
-                    Change Email
+                    Modifier l'e-mail
                   </h3>
                   <form
                     onSubmit={emailForm.handleSubmit(handleChangeEmail)}
@@ -428,19 +429,19 @@ const Settings = () => {
                   >
                     <div className="max-w-md">
                       <label className="block text-sm font-medium text-gray-300 mb-2">
-                        New Email Address
+                        Nouvelle adresse e-mail
                       </label>
                       <input
                         type="email"
                         {...emailForm.register("email", {
-                          required: "Email is required",
+                          required: "L'e-mail est requis",
                           pattern: {
                             value: /^\S+@\S+$/i,
-                            message: "Invalid email address",
+                            message: "Adresse e-mail invalide",
                           },
                         })}
                         className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Enter new email address"
+                        placeholder="Saisir la nouvelle adresse e-mail"
                       />
                       {emailForm.formState.errors.email && (
                         <p className="text-red-400 text-sm mt-1">
@@ -450,8 +451,8 @@ const Settings = () => {
                     </div>
 
                     <div className="text-sm text-yellow-400">
-                      ⚠️ Changing your email will log you out and require you to
-                      login again.
+                      ⚠️ Modifier votre e-mail vous déconnectera et vous devrez
+                      vous reconnecter.
                     </div>
 
                     <button
@@ -459,7 +460,7 @@ const Settings = () => {
                       disabled={isEmailLoading}
                       className="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-white rounded-lg transition-colors"
                     >
-                      {isEmailLoading ? "Changing..." : "Change Email"}
+                      {isEmailLoading ? "Modification…" : "Modifier l'e-mail"}
                     </button>
                   </form>
                 </div>
@@ -467,7 +468,7 @@ const Settings = () => {
                 {/* Change Username Section */}
                 <div className="space-y-4 border-t border-gray-700 pt-6">
                   <h3 className="text-lg font-medium text-white">
-                    Change Username
+                    Modifier le nom d'utilisateur
                   </h3>
                   <form
                     onSubmit={usernameForm.handleSubmit(handleChangeUsername)}
@@ -475,24 +476,24 @@ const Settings = () => {
                   >
                     <div className="max-w-md">
                       <label className="block text-sm font-medium text-gray-300 mb-2">
-                        New Username
+                        Nouveau nom d'utilisateur
                       </label>
                       <input
                         type="text"
                         {...usernameForm.register("username", {
-                          required: "Username is required",
+                          required: "Le nom d'utilisateur est requis",
                           minLength: {
                             value: 3,
-                            message: "Username must be at least 3 characters",
+                            message: "Le nom d'utilisateur doit comporter au moins 3 caractères",
                           },
                           pattern: {
                             value: /^[a-zA-Z0-9_]+$/,
                             message:
-                              "Username can only contain letters, numbers, and underscores",
+                              "Le nom d'utilisateur ne peut contenir que des lettres, des chiffres et des tirets bas",
                           },
                         })}
                         className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Enter new username"
+                        placeholder="Saisir le nouveau nom d'utilisateur"
                       />
                       {usernameForm.formState.errors.username && (
                         <p className="text-red-400 text-sm mt-1">
@@ -505,8 +506,8 @@ const Settings = () => {
                     </div>
 
                     <div className="text-sm text-yellow-400">
-                      ⚠️ Changing your username will log you out and require you
-                      to login again.
+                      ⚠️ Modifier votre nom d'utilisateur vous déconnectera et
+                      vous devrez vous reconnecter.
                     </div>
 
                     <button
@@ -514,7 +515,7 @@ const Settings = () => {
                       disabled={isUsernameLoading}
                       className="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-400 text-white rounded-lg transition-colors"
                     >
-                      {isUsernameLoading ? "Changing..." : "Change Username"}
+                      {isUsernameLoading ? "Modification…" : "Modifier le nom d'utilisateur"}
                     </button>
                   </form>
                 </div>
@@ -522,23 +523,23 @@ const Settings = () => {
                 {/* Current User Info */}
                 <div className="space-y-4 border-t border-gray-700 pt-6">
                   <h3 className="text-lg font-medium text-white">
-                    Current Account Information
+                    Informations du compte actuel
                   </h3>
                   <div className="bg-gray-700 rounded-lg p-4 space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-gray-300">Username:</span>
+                      <span className="text-gray-300">Nom d'utilisateur :</span>
                       <span className="text-white">
                         {(user as any)?.username || "N/A"}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-300">Email:</span>
+                      <span className="text-gray-300">E-mail :</span>
                       <span className="text-white">
                         {(user as any)?.email || "N/A"}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-300">Role:</span>
+                      <span className="text-gray-300">Rôle :</span>
                       <span className="text-white capitalize">
                         {(user as any)?.role || "N/A"}
                       </span>
@@ -552,17 +553,17 @@ const Settings = () => {
             {activeTab === "notifications" && (
               <div className="space-y-6">
                 <h2 className="text-xl font-semibold text-white">
-                  Notification Settings
+                  Paramètres de notification
                 </h2>
 
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <label className="text-sm font-medium text-gray-300">
-                        Email Notifications
+                        Notifications par e-mail
                       </label>
                       <p className="text-sm text-gray-500">
-                        Receive notifications via email
+                        Recevoir des notifications par e-mail
                       </p>
                     </div>
                     <input
@@ -581,10 +582,10 @@ const Settings = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <label className="text-sm font-medium text-gray-300">
-                        SMS Notifications
+                        Notifications par SMS
                       </label>
                       <p className="text-sm text-gray-500">
-                        Receive notifications via SMS
+                        Recevoir des notifications par SMS
                       </p>
                     </div>
                     <input
@@ -603,10 +604,10 @@ const Settings = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <label className="text-sm font-medium text-gray-300">
-                        New Item Notifications
+                        Notifications de nouveaux objets
                       </label>
                       <p className="text-sm text-gray-500">
-                        Notify when new items are reported
+                        Avertir lorsqu'un nouvel objet est signalé
                       </p>
                     </div>
                     <input
@@ -625,10 +626,10 @@ const Settings = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <label className="text-sm font-medium text-gray-300">
-                        Claim Notifications
+                        Notifications de réclamations
                       </label>
                       <p className="text-sm text-gray-500">
-                        Notify when items are claimed
+                        Avertir lorsqu'un objet est réclamé
                       </p>
                     </div>
                     <input
@@ -647,10 +648,10 @@ const Settings = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <label className="text-sm font-medium text-gray-300">
-                        Reminder Notifications
+                        Notifications de rappel
                       </label>
                       <p className="text-sm text-gray-500">
-                        Send reminders for pending items
+                        Envoyer des rappels pour les objets en attente
                       </p>
                     </div>
                     <input
@@ -673,13 +674,13 @@ const Settings = () => {
             {activeTab === "security" && (
               <div className="space-y-6">
                 <h2 className="text-xl font-semibold text-white">
-                  Security Settings
+                  Paramètres de sécurité
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Password Expiry (days)
+                      Expiration du mot de passe (jours)
                     </label>
                     <input
                       type="number"
@@ -696,7 +697,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Session Timeout (minutes)
+                      Délai d'expiration de session (minutes)
                     </label>
                     <input
                       type="number"
@@ -713,7 +714,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Max Login Attempts
+                      Tentatives de connexion maximales
                     </label>
                     <input
                       type="number"
@@ -733,10 +734,10 @@ const Settings = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <label className="text-sm font-medium text-gray-300">
-                        Two-Factor Authentication
+                        Authentification à deux facteurs
                       </label>
                       <p className="text-sm text-gray-500">
-                        Require 2FA for all users
+                        Exiger la 2FA pour tous les utilisateurs
                       </p>
                     </div>
                     <input
@@ -752,10 +753,10 @@ const Settings = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <label className="text-sm font-medium text-gray-300">
-                        Require Password Change
+                        Exiger le changement de mot de passe
                       </label>
                       <p className="text-sm text-gray-500">
-                        Force users to change default passwords
+                        Forcer les utilisateurs à changer les mots de passe par défaut
                       </p>
                     </div>
                     <input
@@ -778,13 +779,13 @@ const Settings = () => {
             {activeTab === "system" && (
               <div className="space-y-6">
                 <h2 className="text-xl font-semibold text-white">
-                  System Settings
+                  Paramètres système
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Item Expiry (days)
+                      Expiration des objets (jours)
                     </label>
                     <input
                       type="number"
@@ -801,7 +802,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Max Image Size (MB)
+                      Taille maximale des images (Mo)
                     </label>
                     <input
                       type="number"
@@ -821,10 +822,10 @@ const Settings = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <label className="text-sm font-medium text-gray-300">
-                        Auto-delete Expired Items
+                        Suppression auto des objets expirés
                       </label>
                       <p className="text-sm text-gray-500">
-                        Automatically remove expired items
+                        Supprimer automatiquement les objets expirés
                       </p>
                     </div>
                     <input
@@ -843,10 +844,10 @@ const Settings = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <label className="text-sm font-medium text-gray-300">
-                        Require Item Approval
+                        Exiger l'approbation des objets
                       </label>
                       <p className="text-sm text-gray-500">
-                        Items must be approved before being visible
+                        Les objets doivent être approuvés avant d'être visibles
                       </p>
                     </div>
                     <input
@@ -870,20 +871,20 @@ const Settings = () => {
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <h2 className="text-xl font-semibold text-white">
-                    Email Settings (Demo)
+                    Paramètres e-mail (démo)
                   </h2>
                   <button
                     onClick={handleTestEmail}
                     className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
                   >
-                    Test Email
+                    Tester l'e-mail
                   </button>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      SMTP Host
+                      Hôte SMTP
                     </label>
                     <input
                       type="text"
@@ -897,7 +898,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      SMTP Port
+                      Port SMTP
                     </label>
                     <input
                       type="number"
@@ -914,7 +915,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      SMTP Username
+                      Nom d'utilisateur SMTP
                     </label>
                     <input
                       type="text"
@@ -928,7 +929,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      SMTP Password
+                      Mot de passe SMTP
                     </label>
                     <div className="relative">
                       <input
@@ -951,7 +952,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      From Name
+                      Nom de l'expéditeur
                     </label>
                     <input
                       type="text"
@@ -965,7 +966,7 @@ const Settings = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      From Email
+                      E-mail de l'expéditeur
                     </label>
                     <input
                       type="email"
@@ -981,10 +982,10 @@ const Settings = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <label className="text-sm font-medium text-gray-300">
-                      Use SSL/TLS
+                      Utiliser SSL/TLS
                     </label>
                     <p className="text-sm text-gray-500">
-                      Enable secure email transmission
+                      Activer la transmission sécurisée des e-mails
                     </p>
                   </div>
                   <input

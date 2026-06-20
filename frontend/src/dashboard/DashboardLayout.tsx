@@ -40,7 +40,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   // console.log({user})
   const menuItems = [
     {
-      title: "Dashboard",
+      title: "Tableau de bord",
       icon: <FaTachometerAlt />,
       path: "/dashboard",
       badge: null,
@@ -94,7 +94,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 
   const handleSignOut = () => {
     signOut();
-    Modals({ message: "Log out successfully", status: true });
+    Modals({ message: "Déconnexion réussie", status: true });
     window.location.href = "/";
   };
 
@@ -122,8 +122,8 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                 <FaSearch className="text-white text-lg" />
               </div>
               <div>
-                <h1 className="text-white font-bold text-lg">Lost & Found</h1>
-                <p className="text-gray-400 text-xs">Admin Dashboard</p>
+                <h1 className="text-white font-bold text-lg">Retrouver</h1>
+                <p className="text-gray-400 text-xs">Tableau de bord admin</p>
               </div>
             </div>
           )}
@@ -210,12 +210,12 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                 <FaHome />
               </div>
               {!sidebarCollapsed && (
-                <span className="font-medium">Back to Site</span>
+                <span className="font-medium">Retour au site</span>
               )}
 
               {sidebarCollapsed && (
                 <div className="absolute left-full ml-2 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap z-50">
-                  Back to Site
+                  Retour au site
                 </div>
               )}
             </Link>
@@ -232,12 +232,12 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                 <FaSignOutAlt />
               </div>
               {!sidebarCollapsed && (
-                <span className="font-medium">Sign Out</span>
+                <span className="font-medium">Se déconnecter</span>
               )}
 
               {sidebarCollapsed && (
                 <div className="absolute left-full ml-2 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap z-50">
-                  Sign Out
+                  Se déconnecter
                 </div>
               )}
             </button>
@@ -265,7 +265,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             {/* Page Title */}
             <div className="flex-1 lg:ml-0 ml-4">
               <h1 className="text-white text-xl font-semibold">
-                {location.pathname === "/dashboard" && "Dashboard Overview"}
+                {location.pathname === "/dashboard" && "Vue d'ensemble"}
                 {location.pathname.includes("/listings") && "Gestion des annonces"}
                 {location.pathname.includes("/responses") && "Gestion des réponses"}
                 {location.pathname.includes("/users") && "Gestion des utilisateurs"}
@@ -278,7 +278,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             <div className="flex items-center space-x-3">
               <div className="hidden sm:block text-right">
                 <p className="text-white text-sm font-medium">
-                  {user?.name || "User"}
+                  {user?.name || "Utilisateur"}
                 </p>
                 <p className="text-gray-400 text-xs">{user?.role || "USER"}</p>
               </div>
@@ -329,7 +329,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                     )}
                     <div>
                       <span className="block text-white font-medium text-sm">
-                        {user?.email ? user?.email : "User"}
+                        {user?.email ? user?.email : "Utilisateur"}
                       </span>
                       <span className="block text-gray-400 text-xs">
                         {user?.role}
@@ -345,7 +345,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                       className="flex items-center space-x-2 w-full"
                     >
                       <FaTachometerAlt className="text-cyan-400" />
-                      <span>Dashboard</span>
+                      <span>Tableau de bord</span>
                     </Link>
                   </DropdownItem>
                 )}
@@ -356,7 +356,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                     className="flex items-center space-x-2 w-full"
                   >
                     <FaCog className="text-blue-400" />
-                    <span>Settings</span>
+                    <span>Paramètres</span>
                   </Link>
                 </DropdownItem>
 
@@ -383,7 +383,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                 <DropdownItem className="hover:bg-gray-700 text-gray-300 hover:text-white">
                   <Link to="/" className="flex items-center space-x-2 w-full">
                     <FaHome className="text-blue-400" />
-                    <span>Back to Site</span>
+                    <span>Retour au site</span>
                   </Link>
                 </DropdownItem>
 
@@ -395,7 +395,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                 >
                   <div className="flex items-center space-x-2 w-full">
                     <FaSignOutAlt className="text-red-400" />
-                    <span>Sign out</span>
+                    <span>Se déconnecter</span>
                   </div>
                 </DropdownItem>
               </Dropdown>

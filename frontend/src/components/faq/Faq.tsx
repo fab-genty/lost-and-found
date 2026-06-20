@@ -17,24 +17,24 @@ const Faq = () => {
 
   const defaultFaqs: FaqItem[] = [
     {
-      question: "How do I report a lost item?",
+      question: "Comment signaler un objet perdu ?",
       answer:
-        "Simply navigate to the 'Report Lost Item' page, fill out the detailed form with information about your lost item, including description, location, and date. Our system will help track and notify you when a matching item is found.",
+        "Rendez-vous simplement sur la page « Signaler un objet perdu », remplissez le formulaire détaillé avec les informations sur votre objet perdu, notamment la description, le lieu et la date. Notre système vous aidera à suivre votre signalement et vous avertira lorsqu'un objet correspondant sera trouvé.",
     },
     {
-      question: "How can I search for my lost item?",
+      question: "Comment rechercher mon objet perdu ?",
       answer:
-        "Use our advanced search feature to look for items by category, location, date, or keywords. You can filter results to find items that match your lost belongings.",
+        "Utilisez notre recherche avancée pour trouver des objets par catégorie, lieu, date ou mots-clés. Vous pouvez filtrer les résultats pour trouver les objets correspondant à vos affaires perdues.",
     },
     {
-      question: "What happens when I find an item that might be mine?",
+      question: "Que se passe-t-il si je trouve un objet qui pourrait m'appartenir ?",
       answer:
-        "When you spot an item that could be yours, you can submit a claim request with verification details. Our system will help verify ownership before arranging the return.",
+        "Lorsque vous repérez un objet qui pourrait être le vôtre, vous pouvez soumettre une demande de restitution accompagnée de détails de vérification. Notre système aide à vérifier la propriété avant d'organiser la restitution.",
     },
     {
-      question: "How secure is my personal information?",
+      question: "Mes informations personnelles sont-elles en sécurité ?",
       answer:
-        "We prioritize the security of your personal information. We use advanced encryption and strict data protection measures to ensure your data is safe and confidential.",
+        "Nous accordons la priorité à la sécurité de vos informations personnelles. Nous utilisons un chiffrement avancé et des mesures strictes de protection des données pour garantir que vos données restent sûres et confidentielles.",
     },
   ];
 
@@ -47,14 +47,14 @@ const Faq = () => {
           <div className="flex flex-col text-left lg:basis-1/2">
             <p className="inline-block font-semibold text-blue-400 mb-4">FAQ</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-              Frequently Asked{" "}
+              Questions{" "}
               <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Questions
+                fréquentes
               </span>
             </h2>
             <p className="text-gray-300 text-lg">
-              Find answers to common questions about our lost and found
-              management system.
+              Trouvez les réponses aux questions courantes sur notre système de
+              gestion des objets perdus et trouvés.
             </p>
           </div>
 

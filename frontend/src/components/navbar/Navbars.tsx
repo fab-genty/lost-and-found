@@ -59,7 +59,7 @@ export function Navbars() {
   // console.log(users);
   const handleSignOut = () => {
     signOut(navigate);
-    Modals({ message: "Log out successfully", status: true });
+    Modals({ message: "Déconnexion réussie", status: true });
     window.location.reload();
   };
   return (
@@ -87,7 +87,7 @@ export function Navbars() {
               {/* User info - hidden on mobile */}
               <div className="hidden lg:block text-right">
                 <p className="text-white text-sm font-medium">
-                  {users?.name || "User"}
+                  {users?.name || "Utilisateur"}
                 </p>
                 <p className="text-gray-400 text-xs">{users?.role || "USER"}</p>
               </div>
@@ -137,7 +137,7 @@ export function Navbars() {
                     )}
                     <div>
                       <span className="block text-white font-medium text-sm">
-                        {users?.email ? users?.email : "User"}
+                        {users?.email ? users?.email : "Utilisateur"}
                       </span>
                       <span className="block text-gray-400 text-xs">
                         {users?.role}
@@ -153,7 +153,7 @@ export function Navbars() {
                       className="flex items-center space-x-2 w-full"
                     >
                       <FaTachometerAlt className="text-cyan-400" />
-                      <span>Dashboard</span>
+                      <span>Tableau de bord</span>
                     </Link>
                   </DropdownItem>
                 )}
@@ -164,7 +164,7 @@ export function Navbars() {
                     className="flex items-center space-x-2 w-full"
                   >
                     <FaCog className="text-blue-400" />
-                    <span>Settings</span>
+                    <span>Paramètres</span>
                   </Link>
                 </DropdownItem>
 
@@ -196,7 +196,7 @@ export function Navbars() {
                 >
                   <div className="flex items-center space-x-2 w-full">
                     <FaSignOutAlt className="text-red-400" />
-                    <span>Sign out</span>
+                    <span>Se déconnecter</span>
                   </div>
                 </DropdownItem>
               </Dropdown>
@@ -205,12 +205,12 @@ export function Navbars() {
             <div className="flex gap-3">
               <Link to="/login">
                 <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-2.5 px-5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 text-sm">
-                  Login
+                  Connexion
                 </button>
               </Link>
               <Link to="/register">
                 <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 text-sm shadow-lg hover:shadow-xl transform hover:scale-105">
-                  Register
+                  Inscription
                 </button>
               </Link>
             </div>

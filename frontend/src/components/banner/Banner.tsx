@@ -9,7 +9,7 @@ const Banner = () => {
       badge: "Perdu quelque chose ? Signalez-le !",
       title: "Bienvenue sur Retrouver",
       description:
-        "Lost and Found Management is your reliable partner in handling lost items. Whether you've misplaced your belongings or found something left behind, we're here to assist with our modern, efficient system.",
+        "Retrouver est votre partenaire de confiance pour la gestion des objets perdus. Que vous ayez égaré vos affaires ou trouvé un objet abandonné, nous sommes là pour vous aider grâce à notre système moderne et efficace.",
       primaryButton: {
         text: "Signaler un objet perdu",
         href: "/objets/signaler",
@@ -23,9 +23,9 @@ const Banner = () => {
     },
     {
       badge: "Trouvé quelque chose ? Aidez les autres !",
-      title: "Help Reunite Items with Their Owners",
+      title: "Aidez à réunir les objets et leurs propriétaires",
       description:
-        "Join our community of helpful citizens. By reporting found items, you're making a difference in someone's day. Every item reported brings us closer to a more connected community.",
+        "Rejoignez notre communauté de citoyens solidaires. En signalant les objets trouvés, vous changez la journée de quelqu'un. Chaque objet signalé nous rapproche d'une communauté plus solidaire.",
       primaryButton: {
         text: "Signaler un animal",
         href: "/animaux/signaler",
@@ -39,9 +39,9 @@ const Banner = () => {
     },
     {
       badge: "Besoin d'aide ? Nous sommes là !",
-      title: "Track Your Items & Claims",
+      title: "Suivez vos objets et vos demandes",
       description:
-        "Stay updated on your lost item reports and claim requests. Our advanced tracking system ensures you never miss an update when your belongings are found.",
+        "Restez informé de vos signalements d'objets perdus et de vos demandes de restitution. Notre système de suivi avancé vous garantit de ne jamais manquer une mise à jour lorsque vos affaires sont retrouvées.",
       primaryButton: {
         text: "Mes annonces",
         href: "/mon-espace/annonces",
@@ -144,7 +144,7 @@ const Banner = () => {
                     ? "bg-white scale-125"
                     : "bg-white/50 hover:bg-white/70"
                 }`}
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={`Aller à la diapositive ${index + 1}`}
               />
             ))}
           </div>

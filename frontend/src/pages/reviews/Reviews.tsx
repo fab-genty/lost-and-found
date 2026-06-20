@@ -16,23 +16,23 @@ const fallbackTestimonials: Testimonial[] = [
   {
     rating: 5,
     feedback:
-      "The Lost and Found system has streamlined our process of returning lost items to their owners. It's incredibly user-friendly and efficient.",
+      "Le système Retrouver a simplifié notre processus de restitution des objets perdus à leurs propriétaires. Il est incroyablement intuitif et efficace.",
     name: "Michael T.",
-    position: "Operations Manager",
+    position: "Responsable des opérations",
   },
   {
     rating: 4,
     feedback:
-      "I was able to quickly report my lost item, and the system helped me track its status until it was returned. Excellent service!",
+      "J'ai pu signaler rapidement mon objet perdu, et le système m'a aidé à suivre son statut jusqu'à sa restitution. Service excellent !",
     name: "Sarah L.",
-    position: "Frequent Traveler",
+    position: "Voyageuse fréquente",
   },
   {
     rating: 3,
     feedback:
-      "This system has drastically reduced the time and effort needed to manage lost items. It's a game-changer for our department.",
+      "Ce système a considérablement réduit le temps et les efforts nécessaires pour gérer les objets perdus. C'est une révolution pour notre service.",
     name: "David R.",
-    position: "Customer Service Lead",
+    position: "Responsable du service client",
   },
 ];
 
@@ -57,14 +57,14 @@ const Reviews = () => {
       <div className="px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl text-center">
         <div className="space-y-4 mb-16">
           <h2 className="text-4xl md:text-5xl tracking-tight font-extrabold leading-tight text-white">
-            What Our{" "}
+            Ce que disent nos{" "}
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Customers
-            </span>{" "}
-            Say
+              utilisateurs
+            </span>
           </h2>
           <p className="mb-6 font-light text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
-            Hear from the people who trust us with their lost and found items
+            Découvrez les témoignages de ceux qui nous font confiance pour leurs
+            objets perdus et trouvés
           </p>
         </div>
 

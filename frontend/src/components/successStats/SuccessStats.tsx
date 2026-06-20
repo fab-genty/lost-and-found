@@ -6,29 +6,29 @@ const SuccessStats = () => {
     {
       icon: <FaHeart className="w-8 h-8" />,
       number: "15,247",
-      label: "Items Reunited",
-      description: "Successfully returned to owners",
+      label: "Objets réunis",
+      description: "Restitués avec succès à leurs propriétaires",
       emoji: "💖",
     },
     {
       icon: <FaUsers className="w-8 h-8" />,
       number: "28,000+",
-      label: "Happy Users",
-      description: "Active community members",
+      label: "Utilisateurs satisfaits",
+      description: "Membres actifs de la communauté",
       emoji: "👥",
     },
     {
       icon: <FaClock className="w-8 h-8" />,
-      number: "2.4 hrs",
-      label: "Average Return Time",
-      description: "How fast items get claimed",
+      number: "2,4 h",
+      label: "Délai moyen de restitution",
+      description: "Rapidité de réclamation des objets",
       emoji: "⚡",
     },
     {
       icon: <FaMapMarkerAlt className="w-8 h-8" />,
       number: "150+",
-      label: "Cities Covered",
-      description: "Locations worldwide",
+      label: "Villes couvertes",
+      description: "Lieux dans le monde entier",
       emoji: "🌍",
     },
   ];
@@ -39,15 +39,15 @@ const SuccessStats = () => {
         {/* Header */}
         <div className="mx-auto flex max-w-4xl flex-col items-center space-y-4 text-center mb-16">
           <h2 className="text-4xl md:text-5xl tracking-tight font-extrabold leading-tight text-white">
-            Making{" "}
+            Créer des{" "}
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Connections
+              liens
             </span>{" "}
-            That Matter
+            qui comptent
           </h2>
           <p className="font-light text-gray-300 text-lg md:text-xl max-w-3xl">
-            Every day, we help reunite people with their lost belongings and
-            create meaningful connections in our community
+            Chaque jour, nous aidons à réunir les personnes avec leurs affaires
+            perdues et à créer des liens forts au sein de notre communauté
           </p>
         </div>
 
