@@ -36,3 +36,6 @@ frontend/dist
 frontend/.env
 frontend/.vercel
 .superpowers/
+
+# Archives
+*.zip
